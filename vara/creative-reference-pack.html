@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Reference Pack — Vara Life · 2026-06-03</title>
+<style>
+  :root {
+    --ink:           #060237;
+    --ink-2:         #1f2659;
+    --ink-3:         #4a5184;
+    --ink-muted:     #6b73a3;
+    --bg:            #f4f6fb;
+    --surface:       #ffffff;
+    --surface-warm:  #fbfaf5;
+    --surface-cool:  #eef1f8;
+    --border:        #dbe0ec;
+    --border-soft:   #e8ebf3;
+
+    --accent:        #2563eb;
+    --accent-deep:   #1d4ed8;
+    --accent-soft:   #e0e7ff;
+
+    --twin:          #6366f1;
+    --twin-soft:     #eef0ff;
+    --india:         #ea580c;
+    --india-soft:    #fff1e6;
+    --visual:        #db2777;
+    --visual-soft:   #fce7f3;
+    --watch:         #475569;
+    --watch-soft:    #eef1f5;
+
+    --warn:          #b45309;
+    --warn-soft:     #fef3c7;
+    --critical:      #b91c1c;
+    --critical-soft: #fee2e2;
+    --ok:            #15803d;
+    --ok-soft:       #dcfce7;
+
+    --shadow-sm:     0 1px 2px rgba(6, 2, 55, 0.04), 0 1px 3px rgba(6, 2, 55, 0.06);
+    --shadow-md:     0 4px 6px rgba(6, 2, 55, 0.04), 0 10px 20px rgba(6, 2, 55, 0.06);
+    --shadow-hero:   0 8px 24px rgba(6, 2, 55, 0.12), 0 32px 56px rgba(6, 2, 55, 0.10);
+
+    --serif:         "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    --sans:          -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --mono:          "JetBrains Mono", "SF Mono", "Roboto Mono", Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  main { max-width: 900px; margin: 0 auto; padding: 0 24px 96px; }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--accent-soft); transition: text-decoration-color .15s; }
+  a:hover { text-decoration-color: var(--accent); }
+  strong { color: var(--ink); font-weight: 600; }
+
+  /* HERO */
+  .hero {
+    margin: 0 -24px 48px;
+    padding: 64px 32px 56px;
+    background: linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 60%, #2a2475 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -40%; right: -10%;
+    width: 60%; height: 200%;
+    background: radial-gradient(circle, rgba(99,102,241,0.20) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: -60%; left: -15%;
+    width: 60%; height: 200%;
+    background: radial-gradient(circle, rgba(234,88,12,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; max-width: 836px; margin: 0 auto; }
+  .hero-eyebrow {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-size: 40px;
+    line-height: 1.15;
+    margin: 0 0 14px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .hero-lede {
+    font-size: 18px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.86);
+    margin: 0 0 28px;
+    max-width: 700px;
+  }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center;
+    font-size: 13px; color: rgba(255,255,255,0.72);
+  }
+  .hero-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border-radius: 999px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.16);
+    color: #fff; font-weight: 500; font-size: 12px;
+  }
+  .hero-chip.status { background: var(--accent); border-color: transparent; }
+  .hero a { color: #fff; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.5); }
+
+  /* SECTION */
+  section { margin: 0 0 56px; }
+  section > h2 { font-size: 26px; line-height: 1.2; margin: 0 0 8px; font-weight: 700; letter-spacing: -0.01em; }
+  .section-eyebrow {
+    font-family: var(--serif); font-style: italic; font-size: 15px;
+    color: var(--ink-3); margin-bottom: 4px;
+  }
+  .section-lede { font-size: 16px; color: var(--ink-2); margin: 0 0 28px; max-width: 720px; }
+
+  /* FEEDBACK BAR */
+  .feedback-bar {
+    background: linear-gradient(135deg, var(--surface-warm) 0%, var(--surface) 100%);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin: 0 0 56px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+  .feedback-bar::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, var(--ok) 0%, var(--accent) 50%, var(--warn) 100%);
+  }
+  .feedback-bar.bottom { margin: 64px 0 32px; }
+  .feedback-eyebrow {
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+    color: var(--ink-3); margin-bottom: 4px;
+  }
+  .feedback-bar h3 {
+    font-size: 22px; line-height: 1.25; margin: 0 0 8px;
+    color: var(--ink); font-weight: 700; letter-spacing: -0.01em;
+  }
+  .feedback-bar p { font-size: 15px; line-height: 1.6; color: var(--ink-2); margin: 0 0 20px; max-width: 640px; }
+  .feedback-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .fb-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 20px; border-radius: 10px;
+    font-weight: 600; font-size: 14.5px;
+    text-decoration: none; border: 1.5px solid;
+    transition: transform .15s, box-shadow .15s, background .15s;
+  }
+  .fb-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); text-decoration-color: transparent; }
+  .fb-approve { background: var(--ok); color: #fff; border-color: var(--ok); }
+  .fb-approve:hover { background: #126a31; }
+  .fb-changes { background: var(--surface); color: var(--warn); border-color: var(--warn); }
+  .fb-changes:hover { background: var(--warn-soft); }
+  .fb-comment { background: var(--surface); color: var(--ink-2); border-color: var(--border); }
+  .fb-comment:hover { background: var(--surface-cool); color: var(--ink); border-color: var(--ink-3); }
+  .feedback-foot { font-size: 12.5px; color: var(--ink-muted); margin-top: 16px; }
+
+  /* TOC */
+  .toc {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px 24px; margin-bottom: 48px; box-shadow: var(--shadow-sm);
+  }
+  .toc-title {
+    font-family: var(--serif); font-style: italic; font-size: 13px;
+    color: var(--ink-3); margin-bottom: 10px;
+  }
+  .toc ol { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 32px; }
+  .toc li { padding: 4px 0; font-size: 14px; color: var(--ink-2); break-inside: avoid; }
+  .toc li a { color: var(--ink); text-decoration: none; }
+  .toc li a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* AUDIENCE GRID */
+  .audience-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px; margin: 24px 0;
+  }
+  .aud-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px 20px;
+    box-shadow: var(--shadow-sm);
+    border-top: 3px solid var(--accent);
+  }
+  .aud-card .aud-eyebrow {
+    font-family: var(--serif); font-style: italic; font-size: 12px;
+    color: var(--ink-3); margin-bottom: 2px;
+  }
+  .aud-card h4 { margin: 0 0 6px; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .aud-card .aud-body { font-size: 13.5px; line-height: 1.55; color: var(--ink-2); }
+
+  /* PATTERN CARDS */
+  .pattern-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .pattern-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 22px 26px; box-shadow: var(--shadow-sm);
+    display: grid; grid-template-columns: 56px 1fr; gap: 18px; align-items: start;
+  }
+  .pattern-num {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--surface-cool); border: 1px solid var(--border);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 14px; font-weight: 700;
+    color: var(--accent-deep); letter-spacing: 0.04em;
+  }
+  .pattern-card h4 {
+    margin: 0 0 6px; font-size: 18px; font-weight: 600; color: var(--ink);
+    line-height: 1.3;
+  }
+  .pattern-card .pattern-body {
+    font-size: 14.5px; line-height: 1.6; color: var(--ink-2); margin: 0 0 10px;
+  }
+  .pattern-card .pattern-examples {
+    font-size: 12.5px; color: var(--ink-3);
+  }
+  .pattern-card .pattern-examples strong { color: var(--ink-2); font-weight: 600; }
+
+  /* SWIPE CARD (with thumbnail) */
+  .swipe-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .swipe-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm);
+    display: grid; grid-template-columns: 180px 1fr; gap: 0;
+    position: relative;
+  }
+  .swipe-card::before {
+    content: ""; position: absolute; left: 180px; top: 0; bottom: 0; width: 3px;
+  }
+  .swipe-card.twin::before  { background: var(--twin);  }
+  .swipe-card.india::before { background: var(--india); }
+  .swipe-card .swipe-thumb {
+    background: var(--surface-cool);
+    aspect-ratio: 1 / 1.2; width: 100%; height: 100%;
+    object-fit: cover;
+    border-right: 1px solid var(--border);
+  }
+  .swipe-card .swipe-body { padding: 22px 26px; }
+  .swipe-card .swipe-meta {
+    display: flex; flex-wrap: wrap; gap: 6px 12px;
+    margin-bottom: 10px;
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700;
+    color: var(--ink-3);
+  }
+  .swipe-card .swipe-brand {
+    color: var(--ink); font-weight: 700;
+    font-family: var(--sans); letter-spacing: 0;
+    text-transform: none; font-size: 14px;
+  }
+  .swipe-card.twin .swipe-brand-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--twin); margin-right: 6px; vertical-align: middle; }
+  .swipe-card.india .swipe-brand-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--india); margin-right: 6px; vertical-align: middle; }
+  .swipe-card .days-chip {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 8px; border-radius: 4px;
+    background: var(--ok-soft); color: var(--ok);
+    font-family: var(--mono); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .swipe-card h4 { margin: 0 0 8px; font-size: 17px; line-height: 1.35; color: var(--ink); font-weight: 600; }
+  .swipe-card .swipe-why { font-size: 14.5px; line-height: 1.55; color: var(--ink-2); margin: 0 0 12px; }
+  .swipe-card .swipe-tags { font-size: 12.5px; color: var(--ink-3); }
+  .swipe-card .swipe-tags code {
+    font-family: var(--mono); font-size: 11.5px; background: var(--surface-cool);
+    padding: 2px 7px; border-radius: 4px; color: var(--ink-2);
+    margin-right: 4px; letter-spacing: 0;
+  }
+
+  /* PILLAR BAND (section header for brand category) */
+  .pillar-band {
+    margin: 64px -8px 32px; padding: 28px 32px;
+    border-radius: 14px; position: relative; overflow: hidden;
+  }
+  .pillar-band.twin   { background: var(--twin-soft);  }
+  .pillar-band.india  { background: var(--india-soft); }
+  .pillar-band.visual { background: var(--visual-soft); }
+  .pillar-band.watch  { background: var(--watch-soft); }
+  .pillar-band::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+  }
+  .pillar-band.twin::before   { background: var(--twin);   }
+  .pillar-band.india::before  { background: var(--india);  }
+  .pillar-band.visual::before { background: var(--visual); }
+  .pillar-band.watch::before  { background: var(--watch);  }
+  .pillar-band .pb-eyebrow {
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+    color: var(--ink-3); margin-bottom: 4px;
+  }
+  .pillar-band h3 { margin: 0 0 6px; font-size: 24px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .pillar-band .pb-sub { font-size: 14.5px; color: var(--ink-2); margin: 0; }
+
+  /* BRAND BADGE GRID (watchlist) */
+  .badge-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px; margin: 18px 0;
+  }
+  .badge {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 16px;
+    box-shadow: var(--shadow-sm);
+    display: block; text-decoration: none; color: inherit;
+    transition: transform .15s, box-shadow .15s, border-color .15s;
+  }
+  .badge:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); border-color: var(--accent); text-decoration-color: transparent; }
+  .badge .badge-name { font-weight: 700; font-size: 14.5px; color: var(--ink); margin-bottom: 2px; }
+  .badge .badge-handle {
+    font-family: var(--mono); font-size: 11.5px; color: var(--accent-deep);
+    margin-bottom: 4px;
+  }
+  .badge .badge-why { font-size: 12.5px; line-height: 1.4; color: var(--ink-3); }
+
+  /* DIRECTION CARD */
+  .direction-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 24px 28px; box-shadow: var(--shadow-sm);
+    margin: 0 0 14px;
+    position: relative; border-left: 4px solid var(--accent);
+  }
+  .direction-card .dir-num {
+    font-family: var(--mono); font-size: 11.5px; font-weight: 700;
+    color: var(--accent); letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .direction-card h4 { margin: 0 0 10px; font-size: 19px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+  .direction-card .dir-body { font-size: 15px; line-height: 1.6; color: var(--ink-2); margin: 0 0 12px; }
+  .direction-card .dir-refs {
+    font-size: 12.5px; color: var(--ink-3); border-top: 1px solid var(--border-soft); padding-top: 10px;
+  }
+  .direction-card .dir-refs strong { color: var(--ink-2); font-weight: 600; }
+
+  /* CALLOUTS */
+  .callout {
+    display: flex; gap: 14px; margin-top: 18px;
+    padding: 14px 16px; border-radius: 8px;
+    font-size: 14.5px; line-height: 1.55;
+    border-left: 3px solid;
+  }
+  .callout .c-label {
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    font-weight: 700; flex-shrink: 0; margin-top: 2px; min-width: 110px;
+  }
+  .callout .c-body { flex: 1 1 auto; }
+  .callout strong { color: var(--ink); font-weight: 600; }
+  .callout code { font-family: var(--mono); font-size: 12.5px; background: rgba(255,255,255,0.7); padding: 1px 6px; border-radius: 3px; }
+  .callout.info { background: var(--accent-soft); border-left-color: var(--accent); color: var(--ink-2); }
+  .callout.info .c-label { color: var(--accent-deep); }
+  .callout.ok { background: var(--ok-soft); border-left-color: var(--ok); color: #0e3e21; }
+  .callout.ok .c-label { color: var(--ok); }
+  .callout.voice { background: var(--warn-soft); border-left-color: var(--warn); color: #5a3408; }
+  .callout.voice .c-label { color: var(--warn); }
+
+  /* HEAVY DIVIDER */
+  .heavy-divider { text-align: center; margin: 80px 0 32px; position: relative; }
+  .heavy-divider::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 50%;
+    height: 1px; background: var(--border);
+  }
+  .heavy-divider span {
+    background: var(--bg); padding: 0 18px; position: relative;
+    font-family: var(--serif); font-style: italic; font-size: 14px;
+    color: var(--ink-3); letter-spacing: 0.04em;
+  }
+
+  /* DOC META */
+  .doc-meta {
+    margin-top: 64px; padding: 24px 0 0;
+    border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--ink-muted);
+    display: flex; flex-wrap: wrap; gap: 6px 18px;
+  }
+
+  @media (max-width: 720px) {
+    .hero { padding: 48px 24px; }
+    .hero h1 { font-size: 32px; }
+    .toc ol { columns: 1; }
+    .swipe-card { grid-template-columns: 1fr; }
+    .swipe-card::before { left: 0; top: 180px; bottom: auto; width: 100%; height: 3px; }
+    .swipe-card .swipe-thumb { aspect-ratio: 16 / 9; border-right: 0; border-bottom: 1px solid var(--border); }
+    .pattern-card { grid-template-columns: 1fr; }
+    .callout { flex-direction: column; }
+    .callout .c-label { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Vara Life · Creative reference pack · For Prithvi · Monjori · Simran · Kanak</div>
+    <h1>What's winning in longevity creative — and the angles to test next</h1>
+    <p class="hero-lede">A curated read of the swipe file we maintain for Vara: cross-category winners (some Indian, some international), the patterns we keep seeing convert, the five directional angles we recommend testing next, and the question we need Prithvi to weigh in on before Monjori briefs.</p>
+    <div class="hero-meta">
+      <span class="hero-chip status">For review</span>
+      <span class="hero-chip">From 2026-06-02 call</span>
+      <span class="hero-chip">Updated 2026-06-03</span>
+      <span>·</span>
+      <span>Source data: Ad Research hub (cockpit.boco.agency/atlas/varalife-weekly#swipe), 9 active source brands, ~480 creatives</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- FEEDBACK BAR (top) -->
+<aside class="feedback-bar" id="feedback-top">
+  <div class="feedback-eyebrow">For the Vara team</div>
+  <h3>Review &amp; respond</h3>
+  <p>One click sends a pre-filled email to BOCO. Use Approve when you're ready for Monjori to brief against this. Use Request changes if a direction or example needs revision. Use Comment for anything else.</p>
+  <div class="feedback-actions">
+    <a class="fb-btn fb-approve" href="mailto:abhishek@boco.vc?subject=Approved%3A%20Vara%20Creative%20Reference%20Pack&amp;body=Hi%20Aarav%2C%0A%0AApproved%20-%20Monjori%20can%20brief%20against%20this.%0A%0APriority%20directions%20to%20test%20first%3A%0A%E2%80%94%20%5BPick%20from%20directions%20D1-D5%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">
+      <span>✓</span> Approve as-is
+    </a>
+    <a class="fb-btn fb-changes" href="mailto:abhishek@boco.vc?subject=Changes%20requested%3A%20Vara%20Creative%20Reference%20Pack&amp;body=Hi%20Aarav%2C%0A%0ASuggested%20changes%3A%0A%0A%E2%80%A2%20%5BSection%20or%20direction%20number%5D%20%E2%80%94%20%5BSuggested%20change%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">
+      <span>⚠</span> Request changes
+    </a>
+    <a class="fb-btn fb-comment" href="mailto:abhishek@boco.vc?subject=Comment%3A%20Vara%20Creative%20Reference%20Pack&amp;body=Hi%20Aarav%2C%0A%0A%5BYour%20thoughts%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">
+      <span>💬</span> Add a comment
+    </a>
+  </div>
+  <div class="feedback-foot">Responses go to <strong>abhishek@boco.vc</strong>. Direction picks feed Monjori's brief; broadcast plan due Fri 6/06, creative report Mon/Tue.</div>
+</aside>
+
+<!-- TOC -->
+<nav class="toc">
+  <div class="toc-title">In this pack</div>
+  <ol>
+    <li><a href="#about">1. What this is &amp; who it's for</a></li>
+    <li><a href="#patterns">2. 5 patterns we see winning</a></li>
+    <li><a href="#twins">3. Direct twins — deep look</a></li>
+    <li><a href="#india">4. Indian peers — Indian-context wins</a></li>
+    <li><a href="#watchlist">5. Watchlist — brands to start tracking</a></li>
+    <li><a href="#directions">6. 5 directional angles to test</a></li>
+    <li><a href="#deeper">7. How to dig deeper</a></li>
+    <li><a href="#question">8. The question for Prithvi</a></li>
+  </ol>
+</nav>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-eyebrow">Section 1 · What this is</div>
+  <h2>The reference pack — and how to use it</h2>
+  <p class="section-lede">This is the creative reference pack we promised in the 2026-06-02 call. It distills what we're seeing win across 9 swipe-file brands (~480 creatives) into the parts that matter for Vara's next creative cycle: <strong>patterns</strong>, <strong>examples</strong>, and <strong>directional angles</strong>. It is NOT a brief — Prithvi and Monjori own the specific creative direction. It IS the input layer.</p>
+
+  <div class="audience-grid">
+    <div class="aud-card">
+      <div class="aud-eyebrow">Audience 1</div>
+      <h4>Prithvi</h4>
+      <div class="aud-body">Read §2 (patterns) + §6 (directions) + §8 (the question). Your call on which directions to greenlight.</div>
+    </div>
+    <div class="aud-card">
+      <div class="aud-eyebrow">Audience 2</div>
+      <h4>Monjori</h4>
+      <div class="aud-body">Read §3 + §4 (deep-looks). When directions are picked, these become the visual reference set for the brief.</div>
+    </div>
+    <div class="aud-card">
+      <div class="aud-eyebrow">Audience 3</div>
+      <h4>Simran</h4>
+      <div class="aud-body">Pattern context for the media-buying angle on what's likely to work in the cold-traffic batch.</div>
+    </div>
+    <div class="aud-card">
+      <div class="aud-eyebrow">Audience 4</div>
+      <h4>Kanak</h4>
+      <div class="aud-body">Project context — feeds the broadcast plan (due Fri 6/06) and the Mon/Tue creative report.</div>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <div class="c-label">How patterns get here</div>
+    <div class="c-body">Each pattern is grounded in <strong>days-running</strong> as a success proxy — long-running ads in Meta's Ad Library are statistically those continuing to convert (Meta auto-pauses fatigued ads). We blend that with structural reading across brands (format · hook · authority cue · production tier). The watchlist is research-curated for premium fit — those brands are on deck for ingestion next.</div>
+  </div>
+</section>
+
+<!-- PATTERNS -->
+<section id="patterns">
+  <div class="section-eyebrow">Section 2 · Cross-brand patterns</div>
+  <h2>5 patterns we see winning right now</h2>
+  <p class="section-lede">These keep recurring across the longest-running ads from the brands closest to Vara's category and ceiling. Use as the lens — not the brief.</p>
+
+  <div class="pattern-grid">
+    <div class="pattern-card">
+      <div class="pattern-num">P1</div>
+      <div>
+        <h4>Mechanism-first credibility — "here's exactly how it works"</h4>
+        <div class="pattern-body">A short, visual mechanism explainer — drawn from real biology, not metaphor — sustains attention from category-curious buyers. The most durable longevity ads lean on cellular-process visualisation (NAD+, mitochondria, senescent-cell clearance) rendered with restraint. Animation + science illustration &gt; lifestyle stock.</div>
+        <div class="pattern-examples"><strong>Seen on:</strong> Timeline (412d), Wellbeing Nutrition (141d), Blueprint, NOVOS, Elysium (watchlist).</div>
+      </div>
+    </div>
+
+    <div class="pattern-card">
+      <div class="pattern-num">P2</div>
+      <div>
+        <h4>Restraint as luxury — "what we don't say is the message"</h4>
+        <div class="pattern-body">The strongest premium ads use less text, fewer claims, longer holds. One product shot. One credibility cue (Nobel/MIT/NSF/Cornell). One soft CTA. Bryan Johnson + Blueprint, Elysium, LYMA, IM8 — all converge on restraint. The opposite of discount-led, urgency-driven creative.</div>
+        <div class="pattern-examples"><strong>Seen on:</strong> Blueprint, LYMA, Elysium, IM8 (watchlist), Timeline.</div>
+      </div>
+    </div>
+
+    <div class="pattern-card">
+      <div class="pattern-num">P3</div>
+      <div>
+        <h4>Founder / authority in motion — face + voice + 30 seconds</h4>
+        <div class="pattern-body">Short founder or doctor-led video, vertical, native production (Reels-quality not film-set polish). Authority comes from <em>what they say + how they say it</em>, not from set design. Beckham (IM8) and Bryan Johnson (Blueprint) anchor at the top; Hims and Setu mid-tier with founder-led or doctor-led ads pulling steady weeks-30+ days running.</div>
+        <div class="pattern-examples"><strong>Seen on:</strong> Hims (53d), IM8 (32d), Blueprint, Brian Johnson (organic), Setu (32d).</div>
+      </div>
+    </div>
+
+    <div class="pattern-card">
+      <div class="pattern-num">P4</div>
+      <div>
+        <h4>Indian-ritual anchoring — supplement-as-morning-ritual</h4>
+        <div class="pattern-body">The strongest Indian-market ads anchor the supplement to a recognised ritual: morning chai, post-workout, evening unwind. They don't ask the buyer to do something new — they slot into something existing. This is the path that pulls Indian premium beyond "imported-from-the-West" framing.</div>
+        <div class="pattern-examples"><strong>Seen on:</strong> Plix (529d), Aceblend (533d), Wellbeing Nutrition (141d), The Whole Truth (155d).</div>
+      </div>
+    </div>
+
+    <div class="pattern-card">
+      <div class="pattern-num">P5</div>
+      <div>
+        <h4>Honesty / no-BS positioning — "here's what we actually know"</h4>
+        <div class="pattern-body">A growing pattern: acknowledging what the science <em>doesn't</em> prove yet, while making the strongest case for what it does. The Whole Truth built a brand on this; Blueprint hard-leans into it ("if we don't have a study, we say so"). Counter-intuitively, this earns trust faster than maximalist claims.</div>
+        <div class="pattern-examples"><strong>Seen on:</strong> The Whole Truth (155d), Blueprint (organic + paid), Bryan Johnson channels.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECT TWINS -->
+<div class="heavy-divider"><span>· Direct twins ·</span></div>
+
+<section id="twins">
+  <div class="pillar-band twin">
+    <div class="pb-eyebrow">Section 3 · Closest mirrors</div>
+    <h3>Direct twins — international longevity, premium ceiling</h3>
+    <p class="pb-sub">The brands that mirror Vara's exact category (longevity, NAD+, sleep, protein-as-ritual) AND ceiling (premium without luxury affectation). Long-running ads = patterns Meta's algorithm has validated.</p>
+  </div>
+
+  <div class="swipe-grid">
+
+    <article class="swipe-card twin">
+      <img class="swipe-thumb" src="https://dyktmiyvpnayqwwlqspe.supabase.co/storage/v1/object/public/creative-media/inspiration/fbad_1239534287512573_thumb.jpg" alt="Timeline ad creative">
+      <div class="swipe-body">
+        <div class="swipe-meta">
+          <span class="swipe-brand"><span class="swipe-brand-dot"></span>Timeline (Mitopure)</span>
+          <span class="days-chip">412 days running</span>
+        </div>
+        <h4>The Swiss-biotech-as-cinema treatment — "It's About Time"</h4>
+        <p class="swipe-why">Mitochondrial science rendered as warm cinematic film. The longest-running ad in the swipe file — sustained over 13 months without fatigue. <strong>What carries it:</strong> a single visual metaphor (cellular renewal) with deliberate pacing + restrained typography + no urgency markers. No discount, no testimonial, no celebrity. The science <em>is</em> the brand.</p>
+        <div class="swipe-tags"><code>mechanism-first</code> <code>restraint</code> <code>cinematic</code> <code>vertical-square</code></div>
+      </div>
+    </article>
+
+    <article class="swipe-card twin">
+      <img class="swipe-thumb" src="https://dyktmiyvpnayqwwlqspe.supabase.co/storage/v1/object/public/creative-media/inspiration/fbad_4198625097015985_thumb.jpg" alt="Timeline ad creative">
+      <div class="swipe-body">
+        <div class="swipe-meta">
+          <span class="swipe-brand"><span class="swipe-brand-dot"></span>Timeline (Mitopure)</span>
+          <span class="days-chip">290 days running</span>
+        </div>
+        <h4>Single-claim minimalism — clinical results as the hero</h4>
+        <p class="swipe-why">A second long-runner from Timeline carrying the same DNA — single biomarker claim ("cellular energy"), no human face, no lifestyle stock. <strong>What carries it:</strong> the claim is specific enough to read as honest, vague enough to read as universal. The brand voice never breaks character.</p>
+        <div class="swipe-tags"><code>single-claim</code> <code>restraint</code> <code>brand-coherence</code></div>
+      </div>
+    </article>
+
+    <article class="swipe-card twin">
+      <img class="swipe-thumb" src="https://dyktmiyvpnayqwwlqspe.supabase.co/storage/v1/object/public/creative-media/inspiration/fbad_2506584949769994_thumb.jpg" alt="IM8 ad creative">
+      <div class="swipe-body">
+        <div class="swipe-meta">
+          <span class="swipe-brand"><span class="swipe-brand-dot"></span>IM8 (David Beckham)</span>
+          <span class="days-chip">32 days running</span>
+        </div>
+        <h4>Founder-celebrity authority — premium minimalism + face</h4>
+        <p class="swipe-why">Beckham-led launch creative — film-quality production, monochrome restraint, single product shot. $100M ARR in 11 months on this aesthetic. <strong>What carries it:</strong> the face does the credibility lift; the visual language refuses to over-explain. Notice the production tier — but also notice the script: there's no claim being made that the brand can't back.</p>
+        <div class="swipe-tags"><code>celebrity-founder</code> <code>film-tier</code> <code>monochrome</code> <code>no-claim-overreach</code></div>
+      </div>
+    </article>
+
+    <article class="swipe-card twin">
+      <img class="swipe-thumb" src="https://dyktmiyvpnayqwwlqspe.supabase.co/storage/v1/object/public/creative-media/inspiration/fbad_1226979575886852_thumb.jpg" alt="Hims ad creative">
+      <div class="swipe-body">
+        <div class="swipe-meta">
+          <span class="swipe-brand"><span class="swipe-brand-dot"></span>Hims</span>
+          <span class="days-chip">53 days running</span>
+        </div>
+        <h4>Problem-led founder authority — "I built this because…"</h4>
+        <p class="swipe-why">Founder-on-camera, vertical-native, problem framing first (the buyer's pain) before product (the brand's fix). Hims has been compounding this pattern for years across men's wellness — useful for Vara as a longevity-adjacent reference. <strong>What carries it:</strong> the problem is real, the founder is real, the production is intentionally not over-polished.</p>
+        <div class="swipe-tags"><code>founder-led</code> <code>problem-first</code> <code>vertical-native</code> <code>UGC-tier</code></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- INDIAN PEERS -->
+<div class="heavy-divider"><span>· Indian peer set ·</span></div>
+
+<section id="india">
+  <div class="pillar-band india">
+    <div class="pb-eyebrow">Section 4 · Indian peer set</div>
+    <h3>Indian peers — what wins in the Indian market</h3>
+    <p class="pb-sub">Indian premium wellness — different price ceiling, different distribution, different cultural anchors. The brands here show what convertingly translates to the Indian context.</p>
+  </div>
+
+  <div class="swipe-grid">
+
+    <article class="swipe-card india">
+      <img class="swipe-thumb" src="https://dyktmiyvpnayqwwlqspe.supabase.co/storage/v1/object/public/creative-media/inspiration/fbad_2924360834407926_thumb.jpg" alt="Aceblend ad creative">
+      <div class="swipe-body">
+        <div class="swipe-meta">
+          <span class="swipe-brand"><span class="swipe-brand-dot"></span>Aceblend</span>
+          <span class="days-chip">533 days running</span>
+        </div>
+        <h4>Indian premium that doesn't apologise for the price</h4>
+        <p class="swipe-why">17+ months of sustained delivery on a single creative — almost unheard-of in Indian D2C. <strong>What carries it:</strong> premium visual identity rendered for the Indian buyer (no Western aspiration overlay) + functional product framing + ingredient transparency. They don't fight the price point — they justify it.</p>
+        <div class="swipe-tags"><code>indian-premium</code> <code>price-justification</code> <code>ingredient-led</code></div>
+      </div>
+    </article>
+
+    <article class="swipe-card india">
+      <img class="swipe-thumb" src="https://dyktmiyvpnayqwwlqspe.supabase.co/storage/v1/object/public/creative-media/inspiration/fbad_558107770453385_thumb.jpg" alt="Plix ad creative">
+      <div class="swipe-body">
+        <div class="swipe-meta">
+          <span class="swipe-brand"><span class="swipe-brand-dot"></span>Plix</span>
+          <span class="days-chip">529 days running</span>
+        </div>
+        <h4>Indian-ritual anchoring — supplement-as-morning-routine</h4>
+        <p class="swipe-why">17+ months of sustained delivery. Plant-based wellness anchored to a recognised Indian morning ritual. <strong>What carries it:</strong> the ad doesn't ask the buyer to do anything new — it slots into something they already do. Format note: graphics + soft animation, not founder-led. Inventory-style top-of-funnel.</p>
+        <div class="swipe-tags"><code>ritual-anchor</code> <code>plant-based</code> <code>animation-led</code></div>
+      </div>
+    </article>
+
+    <article class="swipe-card india">
+      <img class="swipe-thumb" src="https://dyktmiyvpnayqwwlqspe.supabase.co/storage/v1/object/public/creative-media/inspiration/fbad_1917195368886178_thumb.jpg" alt="The Whole Truth ad creative">
+      <div class="swipe-body">
+        <div class="swipe-meta">
+          <span class="swipe-brand"><span class="swipe-brand-dot"></span>The Whole Truth</span>
+          <span class="days-chip">155 days running</span>
+        </div>
+        <h4>Honesty as positioning — "here's what's really in it"</h4>
+        <p class="swipe-why">5 months of sustained delivery on no-BS positioning — ingredients-on-front, what-we-don't-add as the differentiation. <strong>What carries it:</strong> the message is the brand. They sound like a friend explaining, not a salesperson pitching. Direct echo of one of Vara's brand-voice constraints (smart friend explaining, not salesperson pitching).</p>
+        <div class="swipe-tags"><code>no-BS</code> <code>ingredient-transparency</code> <code>friend-not-salesperson</code></div>
+      </div>
+    </article>
+
+    <article class="swipe-card india">
+      <img class="swipe-thumb" src="https://dyktmiyvpnayqwwlqspe.supabase.co/storage/v1/object/public/creative-media/inspiration/25617399824546868_thumb.jpg" alt="Wellbeing Nutrition ad creative">
+      <div class="swipe-body">
+        <div class="swipe-meta">
+          <span class="swipe-brand"><span class="swipe-brand-dot"></span>Wellbeing Nutrition</span>
+          <span class="days-chip">141 days running</span>
+        </div>
+        <h4>Indian science-led — clinical claims rendered for Indian buyers</h4>
+        <p class="swipe-why">Science-credible Indian nutraceutical brand — uses mechanism explainers + ingredient claims with restraint. <strong>What carries it:</strong> the claims are specific (CFU counts, % bioavailability) without being technical jargon. Indian-doctor authority cues without celebrity-doctor cost. Closest Indian-context analogue to Vara's brand voice.</p>
+        <div class="swipe-tags"><code>science-led</code> <code>indian-doctor-authority</code> <code>specific-claims</code></div>
+      </div>
+    </article>
+
+    <article class="swipe-card india">
+      <img class="swipe-thumb" src="https://dyktmiyvpnayqwwlqspe.supabase.co/storage/v1/object/public/creative-media/inspiration/fbad_1617878815986878_thumb.jpg" alt="Setu ad creative">
+      <div class="swipe-body">
+        <div class="swipe-meta">
+          <span class="swipe-brand"><span class="swipe-brand-dot"></span>Setu Nutrition</span>
+          <span class="days-chip">32 days running</span>
+        </div>
+        <h4>Indian science-led nutraceuticals — clean, clinical, premium</h4>
+        <p class="swipe-why">Recent launch creative pulling steady delivery. <strong>What carries it:</strong> clean clinical visual language + ingredient-specific claims + restrained typography. The closest visual reference for what "Indian premium-clinical" looks like in 2026.</p>
+        <div class="swipe-tags"><code>clinical-premium</code> <code>ingredient-specific</code> <code>indian-context</code></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- WATCHLIST -->
+<div class="heavy-divider"><span>· On deck — not yet tracked ·</span></div>
+
+<section id="watchlist">
+  <div class="pillar-band watch">
+    <div class="pb-eyebrow">Section 5 · Watchlist</div>
+    <h3>Brands we're queuing for ingestion next</h3>
+    <p class="pb-sub">These are research-curated for direct category fit + premium ceiling. We haven't pulled their full creative history into the Ad Research hub yet — they're on deck. If any catch the Vara team's eye, flag them and we'll prioritise ingestion.</p>
+  </div>
+
+  <h4 style="font-size: 16px; margin: 0 0 12px; color: var(--ink-3); font-family: var(--serif); font-style: italic; letter-spacing: 0.02em;">Direct twins — international longevity (study first)</h4>
+  <div class="badge-grid">
+    <a class="badge" href="https://instagram.com/livemomentous" target="_blank" rel="noreferrer">
+      <div class="badge-name">Momentous</div>
+      <div class="badge-handle">@livemomentous</div>
+      <div class="badge-why">Near-direct analogue — protein + longevity in one disciplined athletic-premium system. NSF/NFL credibility.</div>
+    </a>
+    <a class="badge" href="https://instagram.com/timeline_longevity" target="_blank" rel="noreferrer">
+      <div class="badge-name">Timeline (Mitopure)</div>
+      <div class="badge-handle">@timeline_longevity</div>
+      <div class="badge-why">Already tracked ✓ — closest tonal mirror, Swiss-biotech-as-cinema.</div>
+    </a>
+    <a class="badge" href="https://instagram.com/lymalife" target="_blank" rel="noreferrer">
+      <div class="badge-name">LYMA</div>
+      <div class="badge-handle">@lymalife</div>
+      <div class="badge-why">The luxury ceiling — fashion-editorial art direction, product-as-jewel, zero discount cues.</div>
+    </a>
+    <a class="badge" href="https://instagram.com/im8health" target="_blank" rel="noreferrer">
+      <div class="badge-name">IM8</div>
+      <div class="badge-handle">@im8health</div>
+      <div class="badge-why">Already tracked ✓ — Beckham-led, film-quality, $100M ARR in 11 months.</div>
+    </a>
+    <a class="badge" href="https://instagram.com/elysiumhealth" target="_blank" rel="noreferrer">
+      <div class="badge-name">Elysium Health</div>
+      <div class="badge-handle">@elysiumhealth</div>
+      <div class="badge-why">MIT/Nobel-advised — institutional credibility as premium; quiet, intellectual, restraint-as-luxury.</div>
+    </a>
+    <a class="badge" href="https://instagram.com/avea.life" target="_blank" rel="noreferrer">
+      <div class="badge-name">AVEA Life</div>
+      <div class="badge-handle">@avea.life</div>
+      <div class="badge-why">Warm-premium femininity + Swiss provenance — softer, design-forward counterpoint to cold-clinical longevity.</div>
+    </a>
+    <a class="badge" href="https://instagram.com/novoslabs" target="_blank" rel="noreferrer">
+      <div class="badge-name">NOVOS</div>
+      <div class="badge-handle">@novoslabs</div>
+      <div class="badge-why">Already tracked ✓ — biology-first, clean modern science-credible identity.</div>
+    </a>
+    <a class="badge" href="https://instagram.com/blueprint" target="_blank" rel="noreferrer">
+      <div class="badge-name">Blueprint</div>
+      <div class="badge-handle">@blueprint</div>
+      <div class="badge-why">Already tracked ✓ — Bryan Johnson; stark pharma-meets-Apple minimalism, data-as-aesthetic.</div>
+    </a>
+  </div>
+
+  <h4 style="font-size: 16px; margin: 32px 0 12px; color: var(--ink-3); font-family: var(--serif); font-style: italic; letter-spacing: 0.02em;">Indian premium peer set</h4>
+  <div class="badge-grid">
+    <a class="badge" href="https://instagram.com/gataca.in" target="_blank" rel="noreferrer">
+      <div class="badge-name">Gataca</div>
+      <div class="badge-handle">@gataca.in</div>
+      <div class="badge-why">🔴 Indian <strong>longevity</strong> — NMN/NAD/trans-resveratrol. The most direct Indian category competitor — should be priority ingestion.</div>
+    </a>
+    <a class="badge" href="https://instagram.com/setuindia" target="_blank" rel="noreferrer">
+      <div class="badge-name">Setu Nutrition</div>
+      <div class="badge-handle">@setuindia</div>
+      <div class="badge-why">Already tracked ✓ — science-led nutraceuticals, clean premium-clinical identity.</div>
+    </a>
+    <a class="badge" href="https://instagram.com/hellonyumi" target="_blank" rel="noreferrer">
+      <div class="badge-name">Nyumi</div>
+      <div class="badge-handle">@hellonyumi</div>
+      <div class="badge-why">Women's-wellness gummies; modern premium gummy/nutraceutical art direction.</div>
+    </a>
+    <a class="badge" href="https://instagram.com/drinkauric" target="_blank" rel="noreferrer">
+      <div class="badge-name">Auric</div>
+      <div class="badge-handle">@drinkauric</div>
+      <div class="badge-why">Modern-Ayurveda beverages; bright premium-contemporary design.</div>
+    </a>
+    <a class="badge" href="https://instagram.com/man.matters" target="_blank" rel="noreferrer">
+      <div class="badge-name">Man Matters / Be Bodywise</div>
+      <div class="badge-handle">@man.matters · @bebodywise</div>
+      <div class="badge-why">Category-leading Indian wellness-platform ad creative — strong UGC + science systems at scale.</div>
+    </a>
+  </div>
+
+  <h4 style="font-size: 16px; margin: 32px 0 12px; color: var(--ink-3); font-family: var(--serif); font-style: italic; letter-spacing: 0.02em;">Cross-category art direction (composition reference, not category)</h4>
+  <div class="badge-grid">
+    <a class="badge" href="https://instagram.com/davidprotein" target="_blank" rel="noreferrer">
+      <div class="badge-name">David</div>
+      <div class="badge-handle">@davidprotein</div>
+      <div class="badge-why">Protein bar — viral premium launch, bold reductionist design, science-forward.</div>
+    </a>
+    <a class="badge" href="https://instagram.com/drinkag1" target="_blank" rel="noreferrer">
+      <div class="badge-name">AG1 (Athletic Greens)</div>
+      <div class="badge-handle">@drinkag1</div>
+      <div class="badge-why">The category-defining ritual brand; relentless premium consistency + athlete/expert proof.</div>
+    </a>
+    <a class="badge" href="https://instagram.com/ritual" target="_blank" rel="noreferrer">
+      <div class="badge-name">Ritual</div>
+      <div class="badge-handle">@ritual</div>
+      <div class="badge-why">Transparency-as-design (visible-supply-chain), clean editorial typography, signature yellow.</div>
+    </a>
+    <a class="badge" href="https://instagram.com/seed" target="_blank" rel="noreferrer">
+      <div class="badge-name">Seed</div>
+      <div class="badge-handle">@seed</div>
+      <div class="badge-why">Science-credible microbiome brand; gorgeous editorial + scientific-illustration system.</div>
+    </a>
+  </div>
+
+  <div class="callout info" style="margin-top: 28px;">
+    <div class="c-label">Full watchlist</div>
+    <div class="c-body">The full research-curated watchlist (Tier-1 direct twins · international premium nutrition · Indian peers · composition exemplars · Indian visual-identity refs) lives at <code>~/boco/references/varalife-inspiration-watchlist.md</code> — 30+ brands across 6 categories.</div>
+  </div>
+</section>
+
+<!-- DIRECTIONS -->
+<div class="heavy-divider"><span>· The recommendation layer ·</span></div>
+
+<section id="directions">
+  <div class="section-eyebrow">Section 6 · Directions to test</div>
+  <h2>5 directional angles to test next</h2>
+  <p class="section-lede">These are <strong>directions</strong>, not pitches. Each one is grounded in the patterns above and Vara's brand voice (smart friend explaining, scientific credibility, Indian cultural anchoring). The specific story — who's on camera, which analogy, which product anchor — is Prithvi and Monjori's call. We surface the lanes; you pick the run.</p>
+
+  <div class="direction-card">
+    <div class="dir-num">DIRECTION 1</div>
+    <h4>Founder authority in motion — Dr. Dhruva or Prithvi on camera, vertical-native, mechanism-first</h4>
+    <p class="dir-body">Short founder/medical-director video (45–60s, vertical, Reels-native production tier — not film-set polish). Topic: one specific mechanism (NAD+ decline; BLG leucine threshold; sleep architecture). Authority cue: institutional, not celebrity (Cornell-trained physician; Indian-formulation context). The Indian-doctor authority pattern from Wellbeing Nutrition, but with Vara's specific credibility set.</p>
+    <div class="dir-refs"><strong>References:</strong> P3 (founder/authority in motion) · IM8 (face + restraint) · Hims (problem-led founder) · Wellbeing Nutrition (Indian-doctor authority).</div>
+  </div>
+
+  <div class="direction-card">
+    <div class="dir-num">DIRECTION 2</div>
+    <h4>Mechanism animation — visual cellular-process explainer, no narrator, music-only</h4>
+    <p class="dir-body">15–30s animated micro-explainer of one mechanism — NAD+ decline rendered visually; BLG protein crossing the leucine MPS threshold; Mg-L-threonate crossing the blood-brain barrier. No voiceover. Music + on-screen text only. Mechanism-as-aesthetic pattern from Timeline + NOVOS + Blueprint, translated to Vara's three products.</p>
+    <div class="dir-refs"><strong>References:</strong> P1 (mechanism-first) + P2 (restraint) · Timeline (412d cinematic mechanism) · NOVOS · Elysium.</div>
+  </div>
+
+  <div class="direction-card">
+    <div class="dir-num">DIRECTION 3</div>
+    <h4>Indian-ritual anchoring — VaraPace as morning protein OR VaraSpan as morning-ritual longevity</h4>
+    <p class="dir-body">15–30s lifestyle ad that slots Vara into an existing Indian ritual — not a Western "biohacker stack" framing. The product appears alongside chai, filter coffee, post-walk hydration, evening unwind. Format: real footage, soft animation, Indian voices. The Plix + Aceblend playbook — Indian premium that doesn't apologise for being Indian.</p>
+    <div class="dir-refs"><strong>References:</strong> P4 (Indian-ritual anchoring) · Plix (529d ritual anchor) · Aceblend (533d Indian premium).</div>
+  </div>
+
+  <div class="direction-card">
+    <div class="dir-num">DIRECTION 4</div>
+    <h4>Honesty / "what we don't claim" positioning — a single ad that calls out the limits</h4>
+    <p class="dir-body">A counter-intuitive ad: lead with what NMN <em>hasn't been proven to do</em> in published human trials, then make the strongest case for what it has. The Whole Truth + Blueprint playbook. Counter-intuitively earns trust faster than maximalist claims and pre-empts the sceptic objections that drive bounce. Pairs naturally with Vara's brand-voice constraint against unsubstantiated claims.</p>
+    <div class="dir-refs"><strong>References:</strong> P5 (honesty-as-positioning) · The Whole Truth (155d) · Blueprint · Bryan Johnson channels.</div>
+  </div>
+
+  <div class="direction-card">
+    <div class="dir-num">DIRECTION 5</div>
+    <h4>Restraint as luxury — one product, one claim, one citation, one frame</h4>
+    <p class="dir-body">A static (or near-static) premium ad — single product shot, single biomarker claim, single PMID citation, single soft CTA. The Elysium / LYMA / Blueprint pattern. This is the lowest-effort to produce AND the highest premium signal — but only works if Vara's brand voice can hold the discipline. Use for retargeting + high-AOV buyer cohorts.</p>
+    <div class="dir-refs"><strong>References:</strong> P2 (restraint as luxury) · Blueprint · Elysium · LYMA · IM8.</div>
+  </div>
+
+  <div class="callout voice" style="margin-top: 24px;">
+    <div class="c-label">Voice constraint check</div>
+    <div class="c-body">All 5 directions stay within Vara's brand-voice constraints (no disease-treatment framing · no competitive superlatives · no unsubstantiated health claims · scientific credibility required · Indian cultural anchoring encouraged · register: smart friend explaining, not salesperson pitching). Constraint validation will run on any answer text before deploy via <code>agentic-brand-voice-validator.py</code>.</div>
+  </div>
+</section>
+
+<!-- DEEPER -->
+<section id="deeper">
+  <div class="section-eyebrow">Section 7 · Going deeper</div>
+  <h2>How to dig deeper</h2>
+
+  <div class="callout info">
+    <div class="c-label">Ad Research hub</div>
+    <div class="c-body">Full swipe file lives at <a href="https://cockpit.boco.agency/atlas/varalife-weekly#swipe">cockpit.boco.agency/atlas/varalife-weekly#swipe</a> — daily-refreshed (Apify cron, 05:30 UTC), triage inbox, board view (Video / Static / UGC / Science-Authority / Organic). 9 active source brands, ~480 creatives + growing.</div>
+  </div>
+
+  <div class="callout info">
+    <div class="c-label">Meta Ad Library</div>
+    <div class="c-body">For any brand on the watchlist, the raw source is <a href="https://www.facebook.com/ads/library/">facebook.com/ads/library</a> — search by Page name, filter by India / All countries, sort by recent. Days-running visible on each ad's detail page.</div>
+  </div>
+
+  <div class="callout info">
+    <div class="c-label">Watchlist file</div>
+    <div class="c-body">Full research-curated watchlist (30+ brands across 6 categories): <code>~/boco/references/varalife-inspiration-watchlist.md</code> — also linked from this pack's Section 5.</div>
+  </div>
+
+  <div class="callout info">
+    <div class="c-label">Vara's own performance</div>
+    <div class="c-body">Vara's own best-performing creatives + the patterns BOCO is seeing in the current Meta + Google campaigns will land in the <strong>Mon/Tue creative report</strong> as a separate deliverable. This pack is reference-input; that report is performance-output.</div>
+  </div>
+</section>
+
+<!-- QUESTION -->
+<section id="question">
+  <div class="section-eyebrow">Section 8 · One question</div>
+  <h2>The question for Prithvi</h2>
+
+  <div class="direction-card" style="border-left-color: var(--critical); background: var(--surface-warm);">
+    <div class="dir-num" style="color: var(--critical);">DECIDE</div>
+    <h4>Which 2 of the 5 directions do we brief Monjori against first?</h4>
+    <p class="dir-body">Each direction needs ~2 weeks of production + test cycle. Picking <strong>2 of 5</strong> for the next round lets us A/B them against each other while keeping production load reasonable. The rest stay on deck for the round after.</p>
+    <p class="dir-body" style="font-size: 14px; color: var(--ink-3);"><strong>Our read</strong> (you can override): D2 (mechanism animation) + D3 (Indian-ritual anchoring) is the strongest first pair — they're additive (one premium-clinical, one cultural-anchor), both fit Vara's voice without needing on-camera authority, and they hedge across PACE (protein/ritual fit) and SPAN (longevity/mechanism fit). But D1 + D4 (founder + honesty) is a defensible alternative if Vara wants to lead with Dr. Dhruva on camera.</p>
+    <p class="dir-body" style="font-size: 14px; color: var(--ink-3); margin: 0;">Hit Approve above (with your pick) or Request changes (to revise direction set) to greenlight Monjori's brief.</p>
+  </div>
+</section>
+
+<!-- FEEDBACK BAR (bottom) -->
+<aside class="feedback-bar bottom" id="feedback-bottom">
+  <div class="feedback-eyebrow">Ready to respond?</div>
+  <h3>Greenlight the directions for Monjori</h3>
+  <p>If the 5 directions feel right and you have a pick for the first 2, hit Approve — drop your picks in the email body. Request changes if a direction or example needs revision.</p>
+  <div class="feedback-actions">
+    <a class="fb-btn fb-approve" href="mailto:abhishek@boco.vc?subject=Approved%3A%20Vara%20Creative%20Reference%20Pack&amp;body=Hi%20Aarav%2C%0A%0AApproved%20-%20Monjori%20can%20brief%20against%20this.%0A%0APriority%20directions%20to%20test%20first%3A%0A%E2%80%94%20%5BPick%20from%20directions%20D1-D5%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">
+      <span>✓</span> Approve as-is
+    </a>
+    <a class="fb-btn fb-changes" href="mailto:abhishek@boco.vc?subject=Changes%20requested%3A%20Vara%20Creative%20Reference%20Pack&amp;body=Hi%20Aarav%2C%0A%0ASuggested%20changes%3A%0A%0A%E2%80%A2%20%5BSection%20or%20direction%20number%5D%20%E2%80%94%20%5BSuggested%20change%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">
+      <span>⚠</span> Request changes
+    </a>
+    <a class="fb-btn fb-comment" href="mailto:abhishek@boco.vc?subject=Comment%3A%20Vara%20Creative%20Reference%20Pack&amp;body=Hi%20Aarav%2C%0A%0A%5BYour%20thoughts%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">
+      <span>💬</span> Add a comment
+    </a>
+  </div>
+</aside>
+
+<div class="doc-meta">
+  <span>Vara Life · Creative Reference Pack</span>
+  <span>·</span>
+  <span>Authored by Aarav (BOCO) · 2026-06-03</span>
+  <span>·</span>
+  <span>Source data: Ad Research hub (cockpit.boco.agency/atlas/varalife-weekly#swipe)</span>
+  <span>·</span>
+  <span>Linked dep: 6cef65fc-d9f7-47bc-9cea-7aa89a7d4d2f</span>
+</div>
+
+</main>
+</body>
+</html>
