@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ Page · Science Tab — Questions & Answers · Vara Life</title>
+<style>
+  :root {
+    --ink:           #060237;
+    --ink-2:         #1f2659;
+    --ink-3:         #4a5184;
+    --ink-muted:     #6b73a3;
+    --bg:            #f4f6fb;
+    --surface:       #ffffff;
+    --surface-warm:  #fbfaf5;
+    --surface-cool:  #eef1f8;
+    --border:        #dbe0ec;
+    --border-soft:   #e8ebf3;
+
+    --accent:        #2563eb;
+    --accent-deep:   #1d4ed8;
+    --accent-soft:   #e0e7ff;
+
+    --pace:          #ea580c;
+    --pace-soft:     #fff1e6;
+    --span:          #6366f1;
+    --span-soft:     #eef0ff;
+    --care:          #16a34a;
+    --care-soft:     #e7f5ec;
+    --gen:           #475569;
+    --gen-soft:      #eef1f5;
+
+    --warn:          #b45309;
+    --warn-soft:     #fef3c7;
+    --critical:      #b91c1c;
+    --critical-soft: #fee2e2;
+    --ok:            #15803d;
+    --ok-soft:       #dcfce7;
+
+    --shadow-sm:     0 1px 2px rgba(6, 2, 55, 0.04), 0 1px 3px rgba(6, 2, 55, 0.06);
+    --shadow-md:     0 4px 6px rgba(6, 2, 55, 0.04), 0 10px 20px rgba(6, 2, 55, 0.06);
+    --shadow-hero:   0 8px 24px rgba(6, 2, 55, 0.12), 0 32px 56px rgba(6, 2, 55, 0.10);
+
+    --serif:         "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    --sans:          -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --mono:          "JetBrains Mono", "SF Mono", "Roboto Mono", Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  main { max-width: 900px; margin: 0 auto; padding: 0 24px 96px; }
+
+  /* ============ HERO ============ */
+  .hero {
+    margin: 0 -24px 48px;
+    padding: 64px 32px 56px;
+    background: linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 60%, #2a2475 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -40%; right: -10%;
+    width: 60%; height: 200%;
+    background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: -60%; left: -15%;
+    width: 60%; height: 200%;
+    background: radial-gradient(circle, rgba(234,88,12,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; max-width: 836px; margin: 0 auto; }
+  .hero-eyebrow {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-size: 40px;
+    line-height: 1.15;
+    margin: 0 0 14px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .hero-lede {
+    font-size: 18px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.86);
+    margin: 0 0 28px;
+    max-width: 640px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.72);
+  }
+  .hero-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.16);
+    color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.01em;
+  }
+  .hero-chip.status { background: var(--accent); border-color: transparent; }
+  .hero a { color: #fff; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255,255,255,0.5); }
+  .hero a:hover { text-decoration-color: #fff; }
+
+  /* ============ SECTION ============ */
+  section { margin: 0 0 56px; }
+  section > h2 {
+    font-size: 26px;
+    line-height: 1.2;
+    margin: 0 0 8px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+  section > .section-eyebrow {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-3);
+    margin-bottom: 4px;
+  }
+  section > .section-lede {
+    font-size: 16px;
+    color: var(--ink-2);
+    margin: 0 0 28px;
+    max-width: 720px;
+  }
+
+  /* ============ VALIDATION SPEC ============ */
+  .validation {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 32px;
+    box-shadow: var(--shadow-sm);
+  }
+  .validation ol {
+    counter-reset: spec;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .validation li {
+    counter-increment: spec;
+    padding: 14px 0 14px 56px;
+    position: relative;
+    border-bottom: 1px solid var(--border-soft);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .validation li:last-child { border-bottom: 0; padding-bottom: 0; }
+  .validation li:first-child { padding-top: 0; }
+  .validation li::before {
+    content: counter(spec, decimal-leading-zero);
+    position: absolute;
+    left: 0; top: 14px;
+    width: 40px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+  .validation li:first-child::before { top: 0; }
+  .validation li strong { color: var(--ink); font-weight: 600; }
+  .validation li code { font-family: var(--mono); font-size: 13px; background: var(--surface-cool); padding: 2px 7px; border-radius: 4px; color: var(--ink); }
+
+  /* ============ ALLOCATION CARD ============ */
+  .alloc {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 32px 0;
+  }
+  .alloc-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--gen);
+    border-radius: 12px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow-sm);
+  }
+  .alloc-card.pace  { border-top-color: var(--pace);  }
+  .alloc-card.span  { border-top-color: var(--span);  }
+  .alloc-card.care  { border-top-color: var(--care);  }
+  .alloc-card .alloc-name {
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .alloc-card .alloc-count {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 4px;
+    font-feature-settings: "tnum";
+  }
+  .alloc-card .alloc-sub { font-size: 13px; color: var(--ink-muted); }
+
+  /* ============ PRODUCT BAND (anchor) ============ */
+  .product-band {
+    margin: 64px -8px 32px;
+    padding: 28px 32px;
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-band.pace { background: var(--pace-soft); }
+  .product-band.span { background: var(--span-soft); }
+  .product-band.care { background: var(--care-soft); }
+  .product-band.gen  { background: var(--gen-soft);  }
+  .product-band::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 6px;
+  }
+  .product-band.pace::before { background: var(--pace); }
+  .product-band.span::before { background: var(--span); }
+  .product-band.care::before { background: var(--care); }
+  .product-band.gen::before  { background: var(--gen);  }
+  .product-band .pb-eyebrow {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-3);
+    margin-bottom: 4px;
+  }
+  .product-band h3 {
+    margin: 0 0 6px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .product-band .pb-meta {
+    font-size: 14px;
+    color: var(--ink-2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin-top: 8px;
+  }
+  .product-band .pb-meta code {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: rgba(255,255,255,0.7);
+    padding: 2px 7px;
+    border-radius: 4px;
+    color: var(--ink);
+  }
+
+  /* ============ Q CARD ============ */
+  .q {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 26px;
+    margin: 0 0 16px;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+  .q::before {
+    content: "";
+    position: absolute;
+    left: -1px; top: 24px; bottom: 24px;
+    width: 3px;
+    border-radius: 2px;
+  }
+  .q.pace::before { background: var(--pace); }
+  .q.span::before { background: var(--span); }
+  .q.care::before { background: var(--care); }
+  .q.gen::before  { background: var(--gen);  }
+
+  .q-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .q-id {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-3);
+    letter-spacing: 0.05em;
+    padding: 3px 9px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface-cool);
+  }
+  .q-title {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.35;
+    margin: 0;
+    flex: 1 1 auto;
+  }
+
+  .q-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 8px 24px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .q-grid dt {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ink-3);
+    padding-top: 2px;
+  }
+  .q-grid dd { margin: 0; color: var(--ink-2); }
+  .q-grid dd code {
+    font-family: var(--mono);
+    font-size: 13px;
+    background: var(--surface-cool);
+    padding: 2px 7px;
+    border-radius: 4px;
+    color: var(--ink);
+  }
+  .q-grid dd .pmid-list { margin: 0; padding: 0; list-style: none; }
+  .q-grid dd .pmid-list li {
+    padding: 4px 0;
+    border-bottom: 1px dashed var(--border-soft);
+  }
+  .q-grid dd .pmid-list li:last-child { border-bottom: 0; }
+  .q-grid dd .pmid-list .author { font-weight: 600; color: var(--ink); }
+  .q-grid dd .pmid-list .pmid {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent-deep);
+    margin-left: 4px;
+  }
+  .q-grid dd a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* ============ CALLOUTS ============ */
+  .callout {
+    display: flex;
+    gap: 14px;
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 14.5px;
+    line-height: 1.55;
+    border-left: 3px solid;
+  }
+  .callout .c-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+    min-width: 110px;
+  }
+  .callout .c-body { flex: 1 1 auto; }
+  .callout strong { color: var(--ink); font-weight: 600; }
+  .callout code {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    background: rgba(255,255,255,0.7);
+    padding: 1px 6px;
+    border-radius: 3px;
+  }
+
+  .callout.voice {
+    background: var(--warn-soft);
+    border-left-color: var(--warn);
+    color: #5a3408;
+  }
+  .callout.voice .c-label { color: var(--warn); }
+
+  .callout.blocker {
+    background: var(--critical-soft);
+    border-left-color: var(--critical);
+    color: #6a0e0e;
+  }
+  .callout.blocker .c-label { color: var(--critical); }
+
+  .callout.info {
+    background: var(--accent-soft);
+    border-left-color: var(--accent);
+    color: var(--ink-2);
+  }
+  .callout.info .c-label { color: var(--accent-deep); }
+
+  .callout.ok {
+    background: var(--ok-soft);
+    border-left-color: var(--ok);
+    color: #0e3e21;
+  }
+  .callout.ok .c-label { color: var(--ok); }
+
+  /* ============ SUMMARY TABLE ============ */
+  .summary-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    font-size: 15px;
+  }
+  .summary-table th {
+    text-align: left;
+    padding: 14px 18px;
+    background: var(--surface-cool);
+    color: var(--ink);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border);
+  }
+  .summary-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--ink-2);
+    vertical-align: top;
+  }
+  .summary-table tr:last-child td { border-bottom: 0; }
+  .summary-table tr.total td {
+    background: var(--surface-warm);
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .summary-table .product-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .summary-table .product-dot.pace { background: var(--pace); }
+  .summary-table .product-dot.span { background: var(--span); }
+  .summary-table .product-dot.care { background: var(--care); }
+  .summary-table .product-dot.gen  { background: var(--gen);  }
+  .summary-table td code {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    background: var(--surface-cool);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* ============ SCHEMA / CODE BLOCK ============ */
+  .codeblock {
+    background: var(--ink);
+    color: #cbd5e1;
+    border-radius: 10px;
+    padding: 20px 22px;
+    font-family: var(--mono);
+    font-size: 13.5px;
+    line-height: 1.6;
+    overflow-x: auto;
+    margin: 16px 0;
+    box-shadow: var(--shadow-md);
+  }
+  .codeblock .ck { color: #fbbf24; }
+  .codeblock .cs { color: #86efac; }
+  .codeblock .cc { color: #94a3b8; }
+
+  .surfaces-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .surface-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: var(--shadow-sm);
+    border-top: 3px solid var(--gen);
+  }
+  .surface-card.pace { border-top-color: var(--pace); }
+  .surface-card.span { border-top-color: var(--span); }
+  .surface-card.care { border-top-color: var(--care); }
+  .surface-card .sc-eyebrow {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-3);
+    margin-bottom: 4px;
+  }
+  .surface-card h4 { margin: 0 0 8px; font-size: 16px; color: var(--ink); font-weight: 600; }
+  .surface-card .sc-meta { font-size: 13px; color: var(--ink-2); }
+  .surface-card code {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: var(--surface-cool);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--ink);
+  }
+
+  /* ============ CHECKLIST ============ */
+  .checklist { list-style: none; padding: 0; margin: 0; }
+  .checklist li {
+    padding: 12px 16px 12px 44px;
+    position: relative;
+    border-bottom: 1px solid var(--border-soft);
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .checklist li:last-child { border-bottom: 0; }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 16px; top: 16px;
+    width: 16px; height: 16px;
+    border: 1.5px solid var(--ink-muted);
+    border-radius: 4px;
+    background: var(--surface);
+  }
+  .checklist li strong { color: var(--ink); font-weight: 600; }
+  .checklist li code { font-family: var(--mono); font-size: 13px; background: var(--surface-cool); padding: 2px 6px; border-radius: 4px; color: var(--ink); }
+
+  .checklist-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  /* ============ OPEN QUESTIONS ============ */
+  .open-q { list-style: none; padding: 0; margin: 0; counter-reset: oq; }
+  .open-q li {
+    counter-increment: oq;
+    padding: 18px 22px 18px 64px;
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow-sm);
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .open-q li::before {
+    content: "Q" counter(oq);
+    position: absolute;
+    left: 18px; top: 18px;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--critical);
+    background: var(--critical-soft);
+    padding: 3px 9px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+  }
+  .open-q li strong { color: var(--ink); font-weight: 600; }
+
+  /* ============ FOOTER / META ============ */
+  .doc-meta {
+    margin-top: 64px;
+    padding: 24px 0 0;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink-muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+  }
+  .doc-meta a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* ============ TOC ============ */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 48px;
+    box-shadow: var(--shadow-sm);
+  }
+  .toc-title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-3);
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    columns: 2;
+    column-gap: 32px;
+  }
+  .toc li {
+    padding: 4px 0;
+    font-size: 14px;
+    color: var(--ink-2);
+    break-inside: avoid;
+  }
+  .toc li a { color: var(--ink); text-decoration: none; }
+  .toc li a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ============ FEEDBACK BAR ============ */
+  .feedback-bar {
+    background: linear-gradient(135deg, var(--surface-warm) 0%, var(--surface) 100%);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin: 0 0 56px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+  .feedback-bar::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--ok) 0%, var(--accent) 50%, var(--warn) 100%);
+  }
+  .feedback-bar.bottom {
+    margin: 64px 0 32px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-warm) 100%);
+  }
+  .feedback-eyebrow {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-3);
+    margin-bottom: 4px;
+    letter-spacing: 0.01em;
+  }
+  .feedback-bar h3 {
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0 0 8px;
+    color: var(--ink);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .feedback-bar p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0 0 20px;
+    max-width: 640px;
+  }
+  .feedback-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .fb-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14.5px;
+    text-decoration: none;
+    border: 1.5px solid;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    cursor: pointer;
+    text-decoration-color: transparent;
+  }
+  .fb-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    text-decoration-color: transparent;
+  }
+  .fb-btn .fb-ico {
+    font-size: 16px;
+    line-height: 1;
+  }
+  .fb-approve { background: var(--ok); color: #fff; border-color: var(--ok); }
+  .fb-approve:hover { background: #126a31; }
+  .fb-changes { background: var(--surface); color: var(--warn); border-color: var(--warn); }
+  .fb-changes:hover { background: var(--warn-soft); }
+  .fb-comment { background: var(--surface); color: var(--ink-2); border-color: var(--border); }
+  .fb-comment:hover { background: var(--surface-cool); color: var(--ink); border-color: var(--ink-3); }
+  .feedback-foot {
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    margin-top: 16px;
+  }
+
+  /* ============ SECTION DIVIDER (heavy) ============ */
+  .heavy-divider {
+    text-align: center;
+    margin: 80px 0 32px;
+    position: relative;
+  }
+  .heavy-divider::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 50%;
+    height: 1px;
+    background: var(--border);
+  }
+  .heavy-divider span {
+    background: var(--bg);
+    padding: 0 18px;
+    position: relative;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+  }
+
+  /* ============ INLINE LINK + STRONG ============ */
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--accent-soft); transition: text-decoration-color .15s; }
+  a:hover { text-decoration-color: var(--accent); }
+  strong { color: var(--ink); font-weight: 600; }
+  code { font-family: var(--mono); }
+
+  @media (max-width: 720px) {
+    .hero { padding: 48px 24px; }
+    .hero h1 { font-size: 32px; }
+    .q-grid { grid-template-columns: 1fr; gap: 4px; }
+    .q-grid dt { padding-top: 12px; }
+    .toc ol { columns: 1; }
+    .callout { flex-direction: column; }
+    .callout .c-label { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Vara Life · vara.life/pages/faqs</div>
+    <h1>FAQ Page · Science Tab — Questions &amp; Answers</h1>
+    <p class="hero-lede">The content pack for the new Science &amp; Ingredients tab on the Vara FAQ page: 35 questions, plus the source material — target keyword, answer outline, PubMed citations, and brand-voice guardrails — that Rohan needs to write each answer.</p>
+    <div class="hero-meta">
+      <span class="hero-chip status">P0 · Urgent</span>
+      <span class="hero-chip">Due 2026-06-16</span>
+      <span class="hero-chip">VaraPace · VaraSpan · VaraCare · General</span>
+      <span>·</span>
+      <span>Source plan: <a href="https://cockpit.boco.agency/docs/vara-life-seo-geo-optimization-plan-apr-2026">Vara Life SEO + GEO Plan (Apr 2026) §Task 12</a></span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- FEEDBACK BAR (top — primary call-to-action) -->
+<aside class="feedback-bar" id="feedback-top">
+  <div class="feedback-eyebrow">For the Vara team</div>
+  <h3>Review &amp; respond</h3>
+  <p>One click opens a pre-filled email to BOCO. You can edit the body before sending — add your name, your notes, or specific question numbers you want changed. We track the responses against this document.</p>
+  <div class="feedback-actions">
+    <a class="fb-btn fb-approve" href="mailto:abhishek@boco.vc?subject=Approved%3A%20Vara%20FAQ%20Page%20%E2%80%94%20Science%20Tab&amp;body=Hi%20Aarav%2C%0A%0AApproved%20for%20build%20%26%20deploy.%0A%0ANotes%20%28optional%29%3A%0A%E2%80%94%20%5BAdd%20any%20context%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">
+      <span class="fb-ico">✓</span> Approve as-is
+    </a>
+    <a class="fb-btn fb-changes" href="mailto:abhishek@boco.vc?subject=Changes%20requested%3A%20Vara%20FAQ%20Page%20%E2%80%94%20Science%20Tab&amp;body=Hi%20Aarav%2C%0A%0ASuggested%20changes%3A%0A%0A%E2%80%A2%20%5BSection%20or%20Q%20number%5D%20%E2%80%94%20%5BSuggested%20change%5D%0A%E2%80%A2%20%5B...%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">
+      <span class="fb-ico">⚠</span> Request changes
+    </a>
+    <a class="fb-btn fb-comment" href="mailto:abhishek@boco.vc?subject=Comment%3A%20Vara%20FAQ%20Page%20%E2%80%94%20Science%20Tab&amp;body=Hi%20Aarav%2C%0A%0A%5BYour%20thoughts%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">
+      <span class="fb-ico">💬</span> Add a comment
+    </a>
+  </div>
+  <div class="feedback-foot">Responses go to <strong>abhishek@boco.vc</strong>. We acknowledge within 24h and resolve on the next working day.</div>
+</aside>
+
+<!-- TABLE OF CONTENTS -->
+<nav class="toc">
+  <div class="toc-title">In this document</div>
+  <ol>
+    <li><a href="#about">1. What this is &amp; who it's for</a></li>
+    <li><a href="#done">2. What "done" looks like</a></li>
+    <li><a href="#allocation">3. Allocation across products</a></li>
+    <li><a href="#varapace">4. VaraPace — 10 Qs</a></li>
+    <li><a href="#varaspan">5. VaraSpan — 12 Qs</a></li>
+    <li><a href="#varacare">6. VaraCare — 8 Qs</a></li>
+    <li><a href="#general">7. General Varalife — 5 Qs</a></li>
+    <li><a href="#summary">8. Question-set summary</a></li>
+    <li><a href="#schema">9. FAQPage schema deployment</a></li>
+    <li><a href="#checklist">10. Pre-write checklist for Rohan</a></li>
+    <li><a href="#handoff">11. Hand-off back to BOCO</a></li>
+    <li><a href="#open">12. Open questions for Vara team</a></li>
+    <li><a href="#refs">13. Reference links</a></li>
+  </ol>
+</nav>
+
+<!-- ABOUT / PURPOSE -->
+<section id="about">
+  <div class="section-eyebrow">Section 1 · What this is</div>
+  <h2>The Science tab — and why it matters more than a typical FAQ</h2>
+  <p class="section-lede">This is the content pack for the new <strong>Science &amp; Ingredients tab</strong> on <a href="https://vara.life/pages/faqs">vara.life/pages/faqs</a>. It contains <strong>35 questions</strong> and, for each, the target keyword, answer outline, PubMed citations, deploy surface, and the brand-voice guardrails Rohan applies as he writes the answer. Rohan ships the answers; BOCO ships the structure, evidence, and validation.</p>
+
+  <p style="font-size: 16px; line-height: 1.7; color: var(--ink-2); margin: 0 0 28px; max-width: 760px;">
+    This page does triple duty. It serves three very different audiences with one piece of work — which is why each answer is written to the same tight spec (80–150 words · keyword in first sentence · PubMed citation · plain-English close).
+  </p>
+
+  <div class="surfaces-grid">
+    <div class="surface-card pace">
+      <div class="sc-eyebrow">Audience 1</div>
+      <h4>Human readers</h4>
+      <div class="sc-meta">A curious buyer searching <em>"is NMN safe long-term?"</em> lands here. The answer either earns the next click or sends them to a competitor. Honesty + evidence is the trust spine.</div>
+    </div>
+    <div class="surface-card span">
+      <div class="sc-eyebrow">Audience 2</div>
+      <h4>Google Search</h4>
+      <div class="sc-meta"><strong>FAQPage JSON-LD schema</strong> on every surface unlocks rich results + featured snippets. The 80–150-word window, keyword in the first sentence, and PMID-backed claims target Google's featured-snippet criteria directly.</div>
+    </div>
+    <div class="surface-card care">
+      <div class="sc-eyebrow">Audience 3</div>
+      <h4>AI engines</h4>
+      <div class="sc-meta">ChatGPT, Perplexity, Gemini, Claude. They extract the <strong>first 40–60 words</strong> of an answer to ground their own response — so the first sentence must answer the question literally, and citations must resolve. This is the AEO half of SEO/GEO.</div>
+    </div>
+  </div>
+
+  <div class="callout info" style="margin-top: 28px;">
+    <div class="c-label">Where it ships</div>
+    <div class="c-body">
+      The 35 questions deploy across <strong>4 surfaces</strong>: the three product PDPs (VaraPace, VaraSpan, VaraCare) carry their pillar's questions; the central <code>/pages/faqs</code> Science tab carries all 35. The existing 23 ops Qs (Orders / Shipping / Returns / Product Care) stay where they are in their own tabs — they're not touched. <strong>Net <code>/pages/faqs</code> = 58 Qs across 5 tabs.</strong>
+    </div>
+  </div>
+
+  <p style="font-size: 15.5px; line-height: 1.65; color: var(--ink-3); margin: 28px 0 0; max-width: 760px;">
+    What follows: the acceptance criteria (§2), how the 35 Qs split across products (§3), every individual question with its source material (§4–7), the question-set summary (§8), the JSON-LD schema deploy plan (§9), and the pre-write checklist + hand-off protocol (§10–13).
+  </p>
+</section>
+
+<!-- VALIDATION SPEC -->
+<section id="done">
+  <div class="section-eyebrow">Section 2 · Acceptance criteria</div>
+  <h2>What "done" looks like</h2>
+  <p class="section-lede">Seven mechanical gates. If any one fails, the brief is not deployable. Read these before writing the first answer.</p>
+
+  <div class="validation">
+    <ol>
+      <li><strong>All 35 Qs live</strong> on the three product pages (PDP-local FAQs) <em>and</em> on <code>/pages/faqs</code> (central hub merged with the existing 23 ops Qs).</li>
+      <li><strong>FAQPage JSON-LD schema</strong> present on every page that hosts FAQs (PDPs + <code>/pages/faqs</code>). Schema deploy plan in §8 below.</li>
+      <li><strong>Each answer 80–150 words</strong> — the plan's window. Wider than the operator's 40–80 hint; the plan governs because Google's snippet sweet spot has expanded. Answer the question in the first sentence — AI engines extract the first 40–60 words.</li>
+      <li><strong>Each answer carries ≥1 citation.</strong> PubMed PMID + Author Year format inline: <code>(Yoshino et al 2021, PMID 33888596)</code>. PMIDs in this brief are starting points; Rohan verifies each on <a href="https://pubmed.ncbi.nlm.nih.gov">pubmed.ncbi.nlm.nih.gov</a> before publishing.</li>
+      <li><strong>Brand-voice validator clean</strong> before deploy: <code>python3 ~/boco/toolbox/agentic-brand-voice-validator.py --brand varalife --text-file {answers.md}</code> returns exit 0.</li>
+      <li><strong>Google Rich Results Test PASS</strong> on every URL hosting FAQs: <a href="https://search.google.com/test/rich-results">search.google.com/test/rich-results</a></li>
+      <li><strong>No commercial / payment / discount data.</strong> No urgency. No competitive disparagement. No disease-treatment framing. No unverified PMIDs.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ALLOCATION -->
+<section id="allocation">
+  <div class="section-eyebrow">Section 3 · Allocation</div>
+  <h2>Allocation across products</h2>
+  <p class="section-lede">The SEO plan's by-product split. Existing 23 ops Qs stay where they are — these 35 are <em>additive</em>.</p>
+
+  <div class="alloc">
+    <div class="alloc-card pace">
+      <div class="alloc-name">VaraPace</div>
+      <div class="alloc-count">10</div>
+      <div class="alloc-sub">BLG protein · RTD format</div>
+    </div>
+    <div class="alloc-card span">
+      <div class="alloc-name">VaraSpan</div>
+      <div class="alloc-count">12</div>
+      <div class="alloc-sub">NMN · NAD+ · longevity</div>
+    </div>
+    <div class="alloc-card care">
+      <div class="alloc-name">VaraCare</div>
+      <div class="alloc-count">8</div>
+      <div class="alloc-sub">Sleep · Mg-L-threonate</div>
+    </div>
+    <div class="alloc-card">
+      <div class="alloc-name">General</div>
+      <div class="alloc-count">5</div>
+      <div class="alloc-sub">Brand · FSSAI · founders</div>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <div class="c-label">Pre-existing surface</div>
+    <div class="c-body"><a href="https://vara.life/pages/faqs">vara.life/pages/faqs</a> already carries 23 ops Qs (Orders / Shipping / Returns / Product Care). <strong>Keep all 23. Add 35 below.</strong> Net page = 58 Qs.</div>
+  </div>
+</section>
+
+<!-- ============ VARAPACE ============ -->
+<div class="heavy-divider"><span>· Product 1 of 3 ·</span></div>
+
+<section id="varapace">
+  <div class="product-band pace">
+    <div class="pb-eyebrow">Product 1</div>
+    <h3>VaraPace — BLG protein, RTD format</h3>
+    <p style="margin: 6px 0 0; font-size: 15px; color: var(--ink-2);">10 questions across protein science, dosage, format comparisons, and Indian-vegetarian framing.</p>
+    <div class="pb-meta">
+      <span><strong>Deploy:</strong> VaraPace PDP + <code>/pages/faqs</code></span>
+      <span><strong>Product link:</strong> <a href="https://vara.life/products/varapace">vara.life/products/varapace</a></span>
+    </div>
+  </div>
+
+  <!-- Q1 -->
+  <article class="q pace" id="q1">
+    <div class="q-head">
+      <span class="q-id">Q01</span>
+      <h4 class="q-title">What is BLG protein?</h4>
+    </div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt>
+      <dd><code>BLG protein</code> <span style="color:var(--ink-muted)">— informational, India searches ~rising</span></dd>
+      <dt>Answer outline</dt>
+      <dd>Define BLG (Beta-Lactoglobulin) as the most abundant whey-protein fraction (≈50% of whey protein); explain why it's leucine-rich; note it's the format VaraPace uses in RTD form.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Gorissen et al 2018</span><span class="pmid">PMID 30041337</span> — protein content + amino-acid composition of plant-based and dairy proteins</li>
+          <li><span class="author">Foegeding et al 2002</span><span class="pmid">PMID 12182524</span> — BLG fractional composition</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt>
+      <dd>VaraPace (end of answer, single soft link)</dd>
+    </dl>
+  </article>
+
+  <!-- Q2 -->
+  <article class="q pace" id="q2">
+    <div class="q-head"><span class="q-id">Q02</span><h4 class="q-title">What is the difference between BLG protein and whey protein?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>BLG vs whey protein</code></dd>
+      <dt>Answer outline</dt><dd>Whey = the full liquid fraction left after cheese making (~20% protein in raw whey, concentrated to 70–90% in WPC/WPI). BLG = the dominant single fraction within whey. Lead with the 45% leucine differential vs standard whey; note BCAA density.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Gorissen et al 2018</span><span class="pmid">PMID 30041337</span></li>
+          <li><span class="author">Hulmi et al 2010</span><span class="pmid">PMID 20565767</span> — leucine and MPS</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraPace</dd>
+    </dl>
+  </article>
+
+  <!-- Q3 -->
+  <article class="q pace" id="q3">
+    <div class="q-head"><span class="q-id">Q03</span><h4 class="q-title">Why does BLG have more leucine than whey?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>BLG leucine content</code> / <code>BLG protein leucine</code></dd>
+      <dt>Answer outline</dt><dd>Because BLG is the leucine-densest fraction within whey; whey protein concentrate dilutes that with α-lactalbumin and other minor fractions. State the actual gram-per-100g figure.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Gorissen et al 2018</span><span class="pmid">PMID 30041337</span></li>
+          <li><span class="author">Sawyer 2013</span><span class="pmid">PMID 23633384</span> — BLG structure review</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraPace</dd>
+    </dl>
+  </article>
+
+  <!-- Q4 -->
+  <article class="q pace" id="q4">
+    <div class="q-head"><span class="q-id">Q04</span><h4 class="q-title">Is BLG protein better than whey isolate?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>BLG vs whey isolate</code></dd>
+      <dt>Answer outline</dt><dd>Factual comparison only — same biological origin; BLG carries higher leucine density per gram; whey isolate carries broader amino-acid profile (more α-lactalbumin); both are complete proteins. Avoid "better" — say "differs in".</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Gorissen et al 2018</span><span class="pmid">PMID 30041337</span></li>
+          <li><span class="author">Devries &amp; Phillips 2015</span><span class="pmid">PMID 26412275</span> — protein quality scoring</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraPace</dd>
+    </dl>
+    <div class="callout voice">
+      <div class="c-label">Voice note</div>
+      <div class="c-body">"better than" framing risks <code>no_competitive_superlatives</code> — must rephrase to factual comparison.</div>
+    </div>
+  </article>
+
+  <!-- Q5 -->
+  <article class="q pace" id="q5">
+    <div class="q-head"><span class="q-id">Q05</span><h4 class="q-title">How much protein do I need per day?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>daily protein intake India</code></dd>
+      <dt>Answer outline</dt><dd>ICMR-NIN 2020: 0.83 g/kg/day for sedentary Indian adults; 1.2–1.6 g/kg/day for active adults per ISSN 2017. Translate to grams for a 70 kg adult. Note VaraPace contributes ~20 g per shot.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">ICMR-NIN Dietary Guidelines for Indians 2020</span> — <a href="https://www.nin.res.in/dietaryguidelines/">nin.res.in</a></li>
+          <li><span class="author">Jäger et al 2017</span><span class="pmid">PMID 28642676</span> — ISSN protein position stand</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraPace</dd>
+    </dl>
+  </article>
+
+  <!-- Q6 -->
+  <article class="q pace" id="q6">
+    <div class="q-head"><span class="q-id">Q06</span><h4 class="q-title">Can I replace my protein shake with VaraPace?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>protein shot vs protein shake</code> <span style="color:var(--ink-muted)">— purchase-intent</span></dd>
+      <dt>Answer outline</dt><dd>Yes if your goal is post-workout / MPS-window protein delivery; the BLG content per 60 ml shot matches the leucine threshold for muscle protein synthesis. State the leucine gram figure crossing the 2.5–3 g MPS threshold.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Tang et al 2009</span><span class="pmid">PMID 19589961</span> — leucine threshold</li>
+          <li><span class="author">Witard et al 2014</span><span class="pmid">PMID 24257722</span> — protein-dose MPS curve</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraPace</dd>
+    </dl>
+  </article>
+
+  <!-- Q7 -->
+  <article class="q pace" id="q7">
+    <div class="q-head"><span class="q-id">Q07</span><h4 class="q-title">When is the best time to take VaraPace?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>when to take protein shot</code></dd>
+      <dt>Answer outline</dt><dd>Within 0–2 hours post-resistance training is the canonical window; on training days for MPS, on rest days as a between-meal protein top-up. Cite the "anabolic window" updated meta-analysis (no rush within 2h is the consensus now).</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Schoenfeld et al 2013</span><span class="pmid">PMID 24299050</span> — pre/post workout window meta-analysis</li>
+          <li><span class="author">Arent et al 2020</span><span class="pmid">PMID 33153730</span> — ISSN nutrient timing position stand</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraPace</dd>
+    </dl>
+  </article>
+
+  <!-- Q8 -->
+  <article class="q pace" id="q8">
+    <div class="q-head"><span class="q-id">Q08</span><h4 class="q-title">Is VaraPace suitable for vegetarians?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>vegetarian protein shot India</code></dd>
+      <dt>Answer outline</dt><dd>Yes for lacto-vegetarians (BLG is dairy-derived from milk, like paneer or curd). Not vegan. State this clearly — Indian consumers care.</dd>
+      <dt>Citations</dt><dd>None needed (definitional); reference VaraPace ingredient panel.</dd>
+      <dt>Product link</dt><dd>VaraPace</dd>
+    </dl>
+    <div class="callout voice">
+      <div class="c-label">Voice note</div>
+      <div class="c-body">Indian cultural anchoring opportunity (paneer / curd analogy).</div>
+    </div>
+  </article>
+
+  <!-- Q9 -->
+  <article class="q pace" id="q9">
+    <div class="q-head"><span class="q-id">Q09</span><h4 class="q-title">How does VaraPace compare to other ready-to-drink proteins in India?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>ready to drink protein India</code> / <code>protein shot India</code></dd>
+      <dt>Answer outline</dt><dd>Factual format comparison — most RTDs use WPC/WPI at 25–30 g per 250 ml carton; VaraPace uses concentrated BLG at 20 g per 60 ml shot (higher protein-density-per-volume). No competitor disparagement. Mention RTD category broadly.</dd>
+      <dt>Citations</dt><dd>Product spec sheets (factual). No PubMed needed for format comparison.</dd>
+      <dt>Product link</dt><dd>VaraPace</dd>
+    </dl>
+    <div class="callout voice">
+      <div class="c-label">Voice note</div>
+      <div class="c-body">Must NOT name competitors disparagingly; factual category framing only.</div>
+    </div>
+  </article>
+
+  <!-- Q10 -->
+  <article class="q pace" id="q10">
+    <div class="q-head"><span class="q-id">Q10</span><h4 class="q-title">What makes a protein shot better than protein powder?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>protein shot vs protein powder</code></dd>
+      <dt>Answer outline</dt><dd>Convenience + consistency (no mixing, no clumping, fixed dose); pre-hydrated for absorption; portable. Powder still wins on cost-per-gram. Be balanced — Vara voice is "smart friend explaining" not "salesperson".</dd>
+      <dt>Citations</dt><dd>None scientific; this is format / UX comparison.</dd>
+      <dt>Product link</dt><dd>VaraPace</dd>
+    </dl>
+    <div class="callout voice">
+      <div class="c-label">Voice note</div>
+      <div class="c-body">"better" appears in the question — answer must factually compare both formats including powder's advantages; do NOT make unqualified "better" claims.</div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ VARASPAN ============ -->
+<div class="heavy-divider"><span>· Product 2 of 3 ·</span></div>
+
+<section id="varaspan">
+  <div class="product-band span">
+    <div class="pb-eyebrow">Product 2</div>
+    <h3>VaraSpan — NMN, NAD+, longevity stack</h3>
+    <p style="margin: 6px 0 0; font-size: 15px; color: var(--ink-2);">12 questions: NMN mechanism, NAD+ biology, safety, dosage, NMN-vs-NR, India regulatory framing.</p>
+    <div class="pb-meta">
+      <span><strong>Deploy:</strong> VaraSpan PDP + <code>/pages/faqs</code></span>
+      <span><strong>Product link:</strong> <a href="https://vara.life/products/varaspan">vara.life/products/varaspan</a></span>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <article class="q span" id="q11">
+    <div class="q-head"><span class="q-id">Q11</span><h4 class="q-title">What is NMN (Nicotinamide Mononucleotide)?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>what is NMN</code> / <code>NMN supplement</code></dd>
+      <dt>Answer outline</dt><dd>NMN is a naturally occurring nucleotide derivative your body converts to NAD+, a coenzyme essential for cellular energy and DNA repair. Found in trace amounts in broccoli, edamame, avocado. Define in plain English first.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Yoshino et al 2018</span><span class="pmid">PMID 29991409</span> — NMN review</li>
+          <li><span class="author">Mills et al 2016</span><span class="pmid">PMID 28068222</span> — long-term NMN supplementation in mice</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraSpan</dd>
+    </dl>
+  </article>
+
+  <!-- Q12 -->
+  <article class="q span" id="q12">
+    <div class="q-head"><span class="q-id">Q12</span><h4 class="q-title">What is NAD+ and why does it decline with age?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>NAD+ decline age</code> / <code>what is NAD+</code></dd>
+      <dt>Answer outline</dt><dd>NAD+ (Nicotinamide Adenine Dinucleotide) is a coenzyme in every cell, essential for mitochondrial energy production and sirtuin / PARP function. Tissue NAD+ declines ~50% between ages 40 and 60 due to increased CD38 consumption + reduced biosynthesis.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Yoshino et al 2021</span><span class="pmid">PMID 33888596</span> — NAD+ in human health/disease</li>
+          <li><span class="author">Camacho-Pereira et al 2016</span><span class="pmid">PMID 27304501</span> — CD38-driven NAD+ decline with age</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraSpan</dd>
+    </dl>
+  </article>
+
+  <!-- Q13 -->
+  <article class="q span" id="q13">
+    <div class="q-head"><span class="q-id">Q13</span><h4 class="q-title">How does NMN increase NAD+ levels?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>NMN to NAD conversion</code> / <code>how NMN works</code></dd>
+      <dt>Answer outline</dt><dd>NMN enters the cell via the Slc12a8 transporter and is converted to NAD+ in one enzymatic step by NMNAT enzymes. State the mechanism in one sentence; AI engines reward mechanism specificity.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Grozio et al 2019</span><span class="pmid">PMID 30940908</span> — Slc12a8 transporter discovery</li>
+          <li><span class="author">Yoshino et al 2018</span><span class="pmid">PMID 29991409</span></li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraSpan</dd>
+    </dl>
+  </article>
+
+  <!-- Q14 -->
+  <article class="q span" id="q14">
+    <div class="q-head"><span class="q-id">Q14</span><h4 class="q-title">Is NMN banned in India?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>is NMN banned India</code> <span style="color:var(--ink-muted)">— high-intent fear query</span></dd>
+      <dt>Answer outline</dt><dd>No — NMN is legally sold as a dietary supplement in India under FSSAI nutraceutical regulations. The US FDA's 2022 reclassification of NMN as a drug-investigation candidate does NOT apply in India. State FSSAI's nutraceutical regulations (FSS [Health Supplements, Nutraceuticals, Food for Special Dietary Use, Food for Special Medical Purpose, Functional Food and Novel Food] Regulations, 2022).</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">FSSAI Nutraceutical Regulations 2022</span> — <a href="https://www.fssai.gov.in/">fssai.gov.in</a> · no PubMed for regulatory</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraSpan (mention VaraSpan's FSSAI license number)</dd>
+    </dl>
+    <div class="callout voice">
+      <div class="c-label">Voice note</div>
+      <div class="c-body">This is a fear-based query — must be reassuring AND factually precise; never claim US FDA approval.</div>
+    </div>
+  </article>
+
+  <!-- Q15 -->
+  <article class="q span" id="q15">
+    <div class="q-head"><span class="q-id">Q15</span><h4 class="q-title">Is NMN safe to take long-term?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>NMN safety</code> / <code>is NMN safe</code></dd>
+      <dt>Answer outline</dt><dd>Human RCTs up to 12 months at 250–1200 mg/day have reported no serious adverse events. Mild GI symptoms in &lt;5% of participants. Long-term safety beyond 12 months is still being studied — be honest about this.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Yoshino et al 2021</span><span class="pmid">PMID 33888596</span> — Science RCT</li>
+          <li><span class="author">Yamaguchi et al 2024</span><span class="pmid">PMID 38158597</span> — 12-week NMN safety in older adults</li>
+          <li><span class="author">Pencina et al 2023</span><span class="pmid">PMID 37532118</span> — 60-day NMN tolerability</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraSpan</dd>
+    </dl>
+    <div class="callout voice">
+      <div class="c-label">Voice note</div>
+      <div class="c-body"><code>no_unsubstantiated_health_claims</code> — do NOT say "completely safe"; cite the trial window + caveat.</div>
+    </div>
+  </article>
+
+  <!-- Q16 -->
+  <article class="q span" id="q16">
+    <div class="q-head"><span class="q-id">Q16</span><h4 class="q-title">What is the difference between NMN and NR (Nicotinamide Riboside)?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>NMN vs NR</code></dd>
+      <dt>Answer outline</dt><dd>Both are NAD+ precursors. NR is one biosynthetic step further upstream (NR → NMN → NAD+); NMN is one step closer to NAD+. NR has more published human trials to date. Bioavailability comparison: NR shows confirmed blood NAD+ elevation; NMN evidence is growing but more recent.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Trammell et al 2016</span><span class="pmid">PMID 27721479</span> — NR pharmacokinetics</li>
+          <li><span class="author">Yoshino et al 2021</span><span class="pmid">PMID 33888596</span></li>
+          <li><span class="author">Martens et al 2018</span><span class="pmid">PMID 29569091</span> — NR human RCT</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraSpan (factual; do not disparage NR)</dd>
+    </dl>
+    <div class="callout voice">
+      <div class="c-label">Voice note</div>
+      <div class="c-body">Avoid superlatives. State both honestly.</div>
+    </div>
+  </article>
+
+  <!-- Q17 -->
+  <article class="q span" id="q17">
+    <div class="q-head"><span class="q-id">Q17</span><h4 class="q-title">Why does VaraSpan combine NMN with Resveratrol?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>NMN resveratrol combination</code></dd>
+      <dt>Answer outline</dt><dd>Sirtuins (the longevity enzymes activated by NAD+) require both substrate (NAD+, from NMN) and activator (a sirtuin activator like resveratrol) to function. Combining the two targets sirtuin activity from both sides.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Hubbard &amp; Sinclair 2014</span><span class="pmid">PMID 24388937</span> — sirtuin activator mechanism</li>
+          <li><span class="author">Mills et al 2016</span><span class="pmid">PMID 28068222</span> — NMN + cellular activity</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraSpan</dd>
+    </dl>
+  </article>
+
+  <!-- Q18 -->
+  <article class="q span" id="q18">
+    <div class="q-head"><span class="q-id">Q18</span><h4 class="q-title">What does Resveratrol do for the body?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>what does resveratrol do</code> / <code>resveratrol benefits</code></dd>
+      <dt>Answer outline</dt><dd>Resveratrol is a polyphenol that activates the SIRT1 enzyme, which regulates cellular stress response, mitochondrial biogenesis, and glucose metabolism. Found naturally in grape skin, red wine, peanuts.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Baur &amp; Sinclair 2006</span><span class="pmid">PMID 17075578</span> — resveratrol pharmacology</li>
+          <li><span class="author">Howitz et al 2003</span><span class="pmid">PMID 12939617</span> — sirtuin activation</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraSpan</dd>
+    </dl>
+  </article>
+
+  <!-- Q19 -->
+  <article class="q span" id="q19">
+    <div class="q-head"><span class="q-id">Q19</span><h4 class="q-title">What is the right NMN dosage for beginners?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>NMN dosage</code> / <code>NMN beginner dose</code></dd>
+      <dt>Answer outline</dt><dd>Published human trials use 125–1200 mg/day. A 250 mg/day starting dose is the most common protocol in safety/efficacy trials and is what VaraSpan delivers per serving. Recommend morning + with food.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Yoshino et al 2021</span><span class="pmid">PMID 33888596</span></li>
+          <li><span class="author">Yamaguchi et al 2024</span><span class="pmid">PMID 38158597</span></li>
+          <li><span class="author">Pencina et al 2023</span><span class="pmid">PMID 37532118</span></li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraSpan</dd>
+    </dl>
+  </article>
+
+  <!-- Q20 -->
+  <article class="q span" id="q20">
+    <div class="q-head"><span class="q-id">Q20</span><h4 class="q-title">How long does it take to feel the effects of NMN?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>NMN how long to work</code> / <code>NMN timeline</code></dd>
+      <dt>Answer outline</dt><dd>Be honest. Energy / wakefulness changes reported by ~1–2 weeks in some trial participants (subjective). Measurable blood NAD+ elevation typically by 4–8 weeks. Walking speed / aerobic capacity improvements in trials at 6 weeks – 12 months. Subjective vs measured.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Yoshino et al 2021</span><span class="pmid">PMID 33888596</span></li>
+          <li><span class="author">Igarashi et al 2022</span><span class="pmid">PMID 35691918</span> — NMN + muscle function in older men</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraSpan</dd>
+    </dl>
+    <div class="callout voice">
+      <div class="c-label">Voice note</div>
+      <div class="c-body">Don't promise specific outcomes — say "in trials" and "subjectively reported".</div>
+    </div>
+  </article>
+
+  <!-- Q21 -->
+  <article class="q span" id="q21">
+    <div class="q-head"><span class="q-id">Q21</span><h4 class="q-title">Can I take NMN and protein together?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>NMN with protein</code> / <code>NMN and whey</code></dd>
+      <dt>Answer outline</dt><dd>Yes — no known interaction. NMN is taken on its own pharmacokinetic path (Slc12a8 transporter); protein digestion proceeds independently. Practical guidance: NMN morning, protein around training. (Cross-sell hint — VaraSpan + VaraPace stack is fine.)</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Grozio et al 2019</span><span class="pmid">PMID 30940908</span> — NMN transport</li>
+          <li><em>No interaction data because no interaction studied — say so.</em></li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraSpan + VaraPace</dd>
+    </dl>
+  </article>
+
+  <!-- Q22 -->
+  <article class="q span" id="q22">
+    <div class="q-head"><span class="q-id">Q22</span><h4 class="q-title">How does VaraSpan compare to other NMN supplements in India?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>best NMN supplement India</code> / <code>NMN India</code></dd>
+      <dt>Answer outline</dt><dd>Factual format comparison: VaraSpan is a 5-in-1 formulation (NMN + Resveratrol + Pterostilbene + Spermidine + TMG); most India-available NMN supplements are single-ingredient NMN. State the formulation differential. Do not name competitors disparagingly.</dd>
+      <dt>Citations</dt><dd>Ingredient-specific PMIDs as relevant (see Q17, Q18).</dd>
+      <dt>Product link</dt><dd>VaraSpan</dd>
+    </dl>
+    <div class="callout voice">
+      <div class="c-label">Voice note</div>
+      <div class="c-body"><code>no_competitive_superlatives</code> — do NOT say "best NMN in India"; describe the formulation differential.</div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ VARACARE ============ -->
+<div class="heavy-divider"><span>· Product 3 of 3 ·</span></div>
+
+<section id="varacare">
+  <div class="product-band care">
+    <div class="pb-eyebrow">Product 3</div>
+    <h3>VaraCare — Sleep, Mg-L-threonate, Ashwagandha</h3>
+    <p style="margin: 6px 0 0; font-size: 15px; color: var(--ink-2);">8 questions: melatonin-free positioning, magnesium-L-threonate science, Ayurvedic anchoring, nightly-use safety.</p>
+    <div class="pb-meta">
+      <span><strong>Deploy:</strong> VaraCare PDP + <code>/pages/faqs</code></span>
+      <span><strong>Product link:</strong> <a href="https://vara.life/products/varacare">vara.life/products/varacare</a></span>
+    </div>
+  </div>
+
+  <!-- Q23 -->
+  <article class="q care" id="q23">
+    <div class="q-head"><span class="q-id">Q23</span><h4 class="q-title">What is Magnesium L-threonate (Magtein)?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>magnesium L-threonate</code> / <code>Magtein</code></dd>
+      <dt>Answer outline</dt><dd>Magnesium L-threonate is the only magnesium form clinically demonstrated to cross the blood-brain barrier and elevate brain magnesium levels. Developed by MIT researchers. Magtein is the patented branded form.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Slutsky et al 2010</span><span class="pmid">PMID 20152124</span> — MIT seminal paper on Mg-L-threonate + cognition</li>
+          <li><span class="author">Liu et al 2016</span><span class="pmid">PMID 26519439</span> — 12-week Magtein RCT</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraCare</dd>
+    </dl>
+  </article>
+
+  <!-- Q24 -->
+  <article class="q care" id="q24">
+    <div class="q-head"><span class="q-id">Q24</span><h4 class="q-title">Why doesn't VaraCare contain melatonin?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>sleep supplement without melatonin</code> / <code>melatonin alternative</code></dd>
+      <dt>Answer outline</dt><dd>Because melatonin is a hormone, not a nutrient. Long-term exogenous melatonin can downregulate endogenous melatonin production and dependency is debated. VaraCare uses magnesium L-threonate + glycine + ashwagandha — all natural sleep-supporting nutrients with no hormone exposure.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Costello et al 2014</span><span class="pmid">PMID 25380732</span> — melatonin safety review</li>
+          <li><span class="author">Andersen et al 2016</span><span class="pmid">PMID 26692007</span> — melatonin pharmacology</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraCare</dd>
+    </dl>
+    <div class="callout voice">
+      <div class="c-label">Voice note</div>
+      <div class="c-body">Differentiator — must be factual, NOT scaremongering. Frame as "different mechanism", not "melatonin is bad".</div>
+    </div>
+  </article>
+
+  <!-- Q25 -->
+  <article class="q care" id="q25">
+    <div class="q-head"><span class="q-id">Q25</span><h4 class="q-title">Is melatonin safe to take every night?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>is melatonin safe nightly</code> / <code>melatonin every night</code></dd>
+      <dt>Answer outline</dt><dd>Short-term (≤3 months) melatonin use is considered safe at 0.5–5 mg per published reviews. Long-term nightly use beyond 6 months has limited safety data. Discuss with a doctor; note FSSAI India treats melatonin as Schedule H prescription-only (this is the key India-specific fact).</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Costello et al 2014</span><span class="pmid">PMID 25380732</span></li>
+          <li><span class="author">Auld et al 2017</span><span class="pmid">PMID 27908611</span> — melatonin chronic use</li>
+          <li><span class="author">FSSAI / CDSCO</span> — melatonin scheduling</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraCare (as melatonin-free alternative)</dd>
+    </dl>
+    <div class="callout voice">
+      <div class="c-label">Voice note</div>
+      <div class="c-body">Do NOT claim melatonin is unsafe — state the regulatory + evidence position; let the reader infer.</div>
+    </div>
+  </article>
+
+  <!-- Q26 -->
+  <article class="q care" id="q26">
+    <div class="q-head"><span class="q-id">Q26</span><h4 class="q-title">How does Ashwagandha help with sleep?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>ashwagandha sleep</code> / <code>ashwagandha for sleep</code></dd>
+      <dt>Answer outline</dt><dd>Ashwagandha (Withania somnifera) reduces cortisol — the stress hormone that keeps you wired at night. RCTs show measurable cortisol reduction at 300–600 mg KSM-66/day and self-reported sleep quality improvements.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Salve et al 2019</span><span class="pmid">PMID 32021735</span> — 8-week Ashwagandha RCT</li>
+          <li><span class="author">Chandrasekhar et al 2012</span><span class="pmid">PMID 23439798</span> — Ashwagandha + cortisol</li>
+          <li><span class="author">Langade et al 2019</span><span class="pmid">PMID 31728244</span> — Ashwagandha + sleep RCT</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraCare</dd>
+    </dl>
+    <div class="callout voice">
+      <div class="c-label">Voice note</div>
+      <div class="c-body">Indian cultural anchoring — Ayurvedic context welcome.</div>
+    </div>
+  </article>
+
+  <!-- Q27 -->
+  <article class="q care" id="q27">
+    <div class="q-head"><span class="q-id">Q27</span><h4 class="q-title">What is Glycine and how does it improve sleep?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>glycine sleep</code> / <code>glycine for sleep</code></dd>
+      <dt>Answer outline</dt><dd>Glycine is an amino acid that lowers core body temperature via vasodilation — the same temperature drop that naturally triggers sleep onset. 3 g pre-bed has been shown in trials to improve subjective sleep quality + reduce sleep latency.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Kawai et al 2015</span><span class="pmid">PMID 25533534</span> — glycine + sleep + body temperature</li>
+          <li><span class="author">Yamadera et al 2007</span><span class="pmid">PMID 17712403</span> — glycine subjective sleep quality</li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraCare</dd>
+    </dl>
+  </article>
+
+  <!-- Q28 -->
+  <article class="q care" id="q28">
+    <div class="q-head"><span class="q-id">Q28</span><h4 class="q-title">Can I take VaraCare every night?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>sleep supplement nightly use</code> / <code>is it safe to take sleep supplement daily</code></dd>
+      <dt>Answer outline</dt><dd>Yes — VaraCare contains no hormones and no dependency-forming ingredients. Magnesium L-threonate, glycine, and Ashwagandha have safety data for nightly use at the trial dosages used in VaraCare. Optional 14-day break is a precautionary practice for any supplement, not a requirement.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Salve et al 2019</span><span class="pmid">PMID 32021735</span> — 8-week Ashwagandha safety</li>
+          <li><span class="author">Yamadera et al 2007</span><span class="pmid">PMID 17712403</span></li>
+          <li><span class="author">Liu et al 2016</span><span class="pmid">PMID 26519439</span></li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraCare</dd>
+    </dl>
+  </article>
+
+  <!-- Q29 -->
+  <article class="q care" id="q29">
+    <div class="q-head"><span class="q-id">Q29</span><h4 class="q-title">How long before bed should I take VaraCare?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>when to take sleep supplement</code> / <code>magnesium before bed timing</code></dd>
+      <dt>Answer outline</dt><dd>30–60 minutes before bed. Magnesium L-threonate and glycine peak in plasma at ~60–90 minutes; taking 30–60 min before bed aligns the peak with the natural sleep-onset window.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">Slutsky et al 2010</span><span class="pmid">PMID 20152124</span></li>
+          <li><span class="author">Yamadera et al 2007</span><span class="pmid">PMID 17712403</span></li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>VaraCare</dd>
+    </dl>
+  </article>
+
+  <!-- Q30 -->
+  <article class="q care" id="q30">
+    <div class="q-head"><span class="q-id">Q30</span><h4 class="q-title">How does VaraCare compare to ZzzQuil and other sleep supplements?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>ZzzQuil vs natural sleep supplement</code> / <code>sleep supplement comparison India</code></dd>
+      <dt>Answer outline</dt><dd>Factual ingredient comparison. ZzzQuil uses diphenhydramine (an antihistamine) as its primary active. VaraCare uses Magnesium L-Threonate + glycine + Ashwagandha — non-antihistamine, non-hormone mechanism. State both; do not disparage.</dd>
+      <dt>Citations</dt><dd>Ingredient PMIDs (see Q23, Q26, Q27).</dd>
+      <dt>Product link</dt><dd>VaraCare</dd>
+    </dl>
+    <div class="callout voice">
+      <div class="c-label">Voice note</div>
+      <div class="c-body"><code>no_competitive_superlatives</code> — factual mechanism comparison, never "better".</div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ GENERAL ============ -->
+<div class="heavy-divider"><span>· Cross-cutting ·</span></div>
+
+<section id="general">
+  <div class="product-band gen">
+    <div class="pb-eyebrow">General</div>
+    <h3>General Varalife — brand, FSSAI, founders</h3>
+    <p style="margin: 6px 0 0; font-size: 15px; color: var(--ink-2);">5 questions that don't fit a single PDP. Three carry <strong>operator-blockers</strong> requiring verbatim info from Kanak / Vara team before shipping.</p>
+    <div class="pb-meta">
+      <span><strong>Deploy:</strong> <code>/pages/faqs</code> only</span>
+    </div>
+  </div>
+
+  <!-- Q31 -->
+  <article class="q gen" id="q31">
+    <div class="q-head"><span class="q-id">Q31</span><h4 class="q-title">Are Varalife products FSSAI approved?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>Varalife FSSAI</code> / <code>is Varalife approved</code></dd>
+      <dt>Answer outline</dt><dd>Yes — all Varalife products are manufactured at FSSAI-licensed facilities under FSS Regulations 2022 for nutraceuticals. State the FSSAI license number on each product carton. Rohan: pull license numbers from the existing product cartons / Shopify metafields; do NOT invent.</dd>
+      <dt>Citations</dt>
+      <dd>
+        <ul class="pmid-list">
+          <li><span class="author">FSSAI Nutraceutical Regulations 2022</span> — <a href="https://www.fssai.gov.in/">fssai.gov.in</a></li>
+        </ul>
+      </dd>
+      <dt>Product link</dt><dd>None</dd>
+    </dl>
+    <div class="callout blocker">
+      <div class="c-label">Operator-blocker</div>
+      <div class="c-body">Need actual <strong>FSSAI license numbers</strong> from Kanak / Vara team before answer ships.</div>
+    </div>
+  </article>
+
+  <!-- Q32 -->
+  <article class="q gen" id="q32">
+    <div class="q-head"><span class="q-id">Q32</span><h4 class="q-title">Are Varalife supplements clinically tested?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>Varalife clinical testing</code> / <code>are Varalife products tested</code></dd>
+      <dt>Answer outline</dt><dd>Each ingredient in Varalife products is backed by published human clinical trials (link to specific trials). Vara performs third-party COA testing on each batch for potency + heavy metals + microbials. State the 5-stage development process (formulation → ingredient sourcing → batch testing → COA → finished-product QC).</dd>
+      <dt>Citations</dt><dd>Ingredient-level PMIDs as relevant.</dd>
+      <dt>Product link</dt><dd>None</dd>
+    </dl>
+    <div class="callout voice">
+      <div class="c-label">Voice note</div>
+      <div class="c-body">Do NOT claim "clinically proven" for the finished VaraPace / VaraSpan / VaraCare blends unless Vara has its own published trial (it doesn't yet) — say "the ingredients are clinically studied" not "the product is clinically proven".</div>
+    </div>
+  </article>
+
+  <!-- Q33 -->
+  <article class="q gen" id="q33">
+    <div class="q-head"><span class="q-id">Q33</span><h4 class="q-title">Can I take VaraPace, VaraSpan, and VaraCare together?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>take all Varalife together</code> / <code>Varalife stack</code></dd>
+      <dt>Answer outline</dt><dd>Yes — they target different systems (muscle/energy, cellular NAD+, sleep) with no known ingredient interactions. Timing: VaraPace around training, VaraSpan morning, VaraCare 30–60 min before bed. Cross-sell opportunity but state factually.</dd>
+      <dt>Citations</dt><dd>None needed (interaction-absence claim); reference each product's ingredient list.</dd>
+      <dt>Product link</dt><dd>All three</dd>
+    </dl>
+  </article>
+
+  <!-- Q34 -->
+  <article class="q gen" id="q34">
+    <div class="q-head"><span class="q-id">Q34</span><h4 class="q-title">Who founded Varalife and what are their qualifications?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>Varalife founder</code> / <code>Varalife Dr Dhruva Nair</code></dd>
+      <dt>Answer outline</dt><dd>Dr. Dhruva Nair (Medical Director, Cornell-trained physician) leads formulation alongside Prithvi Chowhan (co-founder, formulation lead). Vara was founded to bring evidence-based longevity supplementation to India. EEAT signal — state credentials precisely.</dd>
+      <dt>Citations</dt><dd>None — about-us content</dd>
+      <dt>Product link</dt><dd>None</dd>
+    </dl>
+    <div class="callout blocker">
+      <div class="c-label">Operator-blocker</div>
+      <div class="c-body">Pull <strong>verbatim founder bios</strong> from Kanak / Vara about-us copy; do NOT paraphrase qualifications.</div>
+    </div>
+  </article>
+
+  <!-- Q35 -->
+  <article class="q gen" id="q35">
+    <div class="q-head"><span class="q-id">Q35</span><h4 class="q-title">Where are Varalife products manufactured?</h4></div>
+    <dl class="q-grid">
+      <dt>Target keyword</dt><dd><code>Varalife manufacturing</code> / <code>where is Varalife made</code></dd>
+      <dt>Answer outline</dt><dd>Manufactured in India at FSSAI-licensed contract facilities (state which city / state if disclosable). State the COA / batch testing process. Builds trust.</dd>
+      <dt>Citations</dt><dd>FSSAI registration</dd>
+      <dt>Product link</dt><dd>None</dd>
+    </dl>
+    <div class="callout blocker">
+      <div class="c-label">Operator-blocker</div>
+      <div class="c-body">Disclosure scope on <strong>manufacturing partner</strong> — confirm with Vara team before publishing names.</div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<div class="heavy-divider"><span>· Reference appendix ·</span></div>
+
+<section id="summary">
+  <div class="section-eyebrow">Section 8 · Summary</div>
+  <h2>Question-set summary</h2>
+  <p class="section-lede">Final tally across the four buckets and the four deploy surfaces.</p>
+
+  <table class="summary-table">
+    <thead>
+      <tr><th>Bucket</th><th># Qs</th><th>Product</th><th>Where deployed</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="product-dot pace"></span>VaraPace (BLG / protein)</td>
+        <td>10</td>
+        <td>VaraPace</td>
+        <td>VaraPace PDP + <code>/pages/faqs</code></td>
+      </tr>
+      <tr>
+        <td><span class="product-dot span"></span>VaraSpan (NMN / NAD+)</td>
+        <td>12</td>
+        <td>VaraSpan</td>
+        <td>VaraSpan PDP + <code>/pages/faqs</code></td>
+      </tr>
+      <tr>
+        <td><span class="product-dot care"></span>VaraCare (sleep)</td>
+        <td>8</td>
+        <td>VaraCare</td>
+        <td>VaraCare PDP + <code>/pages/faqs</code></td>
+      </tr>
+      <tr>
+        <td><span class="product-dot gen"></span>General</td>
+        <td>5</td>
+        <td>n/a</td>
+        <td><code>/pages/faqs</code> only</td>
+      </tr>
+      <tr class="total">
+        <td>Total</td>
+        <td>35</td>
+        <td></td>
+        <td>3 PDPs + central FAQ page</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout info" style="margin-top: 24px;">
+    <div class="c-label">/pages/faqs IA</div>
+    <div class="c-body">
+      Existing 23 ops Qs stay on <code>/pages/faqs</code>. Net <code>/pages/faqs</code> = <strong>58 Qs</strong> organized as: <strong>Science &amp; Ingredients</strong> (NEW, 35) · Orders (5) · Shipping (6) · Returns (6) · Product Care (6).
+    </div>
+  </div>
+
+  <div class="callout ok" style="margin-top: 12px;">
+    <div class="c-label">Citation tally</div>
+    <div class="c-body">~46 unique PMIDs cited across the 35 questions. Rohan must verify each PMID resolves to the claimed paper on <a href="https://pubmed.ncbi.nlm.nih.gov">pubmed.ncbi.nlm.nih.gov</a> before publish. <strong>Any citation Rohan can't verify must NOT ship</strong> — replace with a verified equivalent or flag back to Aarav.</div>
+  </div>
+</section>
+
+<!-- ============ SCHEMA ============ -->
+<section id="schema">
+  <div class="section-eyebrow">Section 9 · Schema deploy</div>
+  <h2>FAQPage schema deployment plan</h2>
+  <p class="section-lede">T5 (FAQPage schema infrastructure) is already DONE per the SEO plan. Adding 35 Qs does not require new infrastructure — only new schema entries.</p>
+
+  <h3 style="font-size: 18px; margin: 32px 0 12px; color: var(--ink);">Where the schema goes (4 surfaces)</h3>
+  <div class="surfaces-grid">
+    <div class="surface-card pace">
+      <div class="sc-eyebrow">Surface 1</div>
+      <h4>VaraPace PDP</h4>
+      <div class="sc-meta">FAQPage block with the <strong>10 VaraPace Qs only</strong></div>
+    </div>
+    <div class="surface-card span">
+      <div class="sc-eyebrow">Surface 2</div>
+      <h4>VaraSpan PDP</h4>
+      <div class="sc-meta">FAQPage block with the <strong>12 VaraSpan Qs only</strong></div>
+    </div>
+    <div class="surface-card care">
+      <div class="sc-eyebrow">Surface 3</div>
+      <h4>VaraCare PDP</h4>
+      <div class="sc-meta">FAQPage block with the <strong>8 VaraCare Qs only</strong></div>
+    </div>
+    <div class="surface-card">
+      <div class="sc-eyebrow">Surface 4</div>
+      <h4><code>/pages/faqs</code></h4>
+      <div class="sc-meta">FAQPage block with <strong>all 58 Qs</strong> (35 new science + 23 existing ops)</div>
+    </div>
+  </div>
+
+  <h3 style="font-size: 18px; margin: 32px 0 12px; color: var(--ink);">Schema shape (per surface)</h3>
+  <p style="font-size: 15px; color: var(--ink-2);">Each surface gets a <code>&lt;script type="application/ld+json"&gt;</code> block:</p>
+
+<pre class="codeblock"><span class="cc">// Per-surface JSON-LD shape</span>
+{
+  <span class="ck">"@context"</span>: <span class="cs">"https://schema.org"</span>,
+  <span class="ck">"@type"</span>: <span class="cs">"FAQPage"</span>,
+  <span class="ck">"mainEntity"</span>: [
+    {
+      <span class="ck">"@type"</span>: <span class="cs">"Question"</span>,
+      <span class="ck">"name"</span>: <span class="cs">"What is NMN (Nicotinamide Mononucleotide)?"</span>,
+      <span class="ck">"acceptedAnswer"</span>: {
+        <span class="ck">"@type"</span>: <span class="cs">"Answer"</span>,
+        <span class="ck">"text"</span>: <span class="cs">"NMN is a naturally occurring nucleotide... Yoshino et al 2018 (PMID 29991409)."</span>
+      }
+    }
+    <span class="cc">// ... one Question object per FAQ on that surface</span>
+  ]
+}</pre>
+
+  <h3 style="font-size: 18px; margin: 32px 0 12px; color: var(--ink);">Deployment mechanics</h3>
+  <ul style="font-size: 15.5px; line-height: 1.65; color: var(--ink-2); padding-left: 20px;">
+    <li><strong>Liquid integration:</strong> the existing FAQPage schema lives in a Shopify section (per T5). Rohan adds new FAQ items in the section's <code>blocks</code> / metafield store; the section's schema-output block auto-emits the JSON-LD.</li>
+    <li><strong>Per-PDP rendering:</strong> the PDP schema block must filter to FAQs tagged for that product (use a Vara FAQ metaobject with a <code>product</code> field; product PDP renders only entries matching its product handle).</li>
+    <li><strong><code>/pages/faqs</code> rendering:</strong> the central page emits all entries (no filter).</li>
+    <li><strong>No content overlap with the existing 23 ops Qs in the schema</strong> — Rohan must add the 35 science Qs as new metaobject entries; do not duplicate the ops Qs into the PDP schema.</li>
+  </ul>
+
+  <h3 style="font-size: 18px; margin: 32px 0 12px; color: var(--ink);">What BOCO does after Rohan writes answers</h3>
+  <div class="validation">
+    <ol>
+      <li>Review every answer: keyword in first sentence ✓ / 80–150 word window ✓ / ≥1 PMID citation ✓ / brand-voice validator clean ✓.</li>
+      <li>Confirm the JSON-LD schema renders correctly on each of the 4 surfaces.</li>
+      <li>Run <strong>Google Rich Results Test</strong> on each URL: <code>vara.life/products/varapace</code> · <code>varaspan</code> · <code>varacare</code> · <code>/pages/faqs</code>.</li>
+      <li>Submit <code>/pages/faqs</code> to Google Search Console for re-indexing.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CHECKLIST ============ -->
+<section id="checklist">
+  <div class="section-eyebrow">Section 10 · Pre-write checklist</div>
+  <h2>Pre-write checklist for Rohan</h2>
+  <p class="section-lede">Before starting answer-writing — eight items, in order. Don't skip.</p>
+
+  <div class="checklist-card">
+    <ul class="checklist">
+      <li>Read the SEO plan §Task 12 (blocks 340–437) and the content guidelines (block 426).</li>
+      <li>Pull <strong>FSSAI license numbers</strong> from Kanak / Vara team (Q31, Q35).</li>
+      <li>Confirm <strong>founder bios verbatim</strong> from Vara team (Q34).</li>
+      <li>Confirm <strong>manufacturer disclosure scope</strong> with Vara team (Q35).</li>
+      <li>Set up a PubMed verification habit: each PMID I cite, I open on pubmed.ncbi.nlm.nih.gov to confirm it resolves to the claimed paper.</li>
+      <li>Write each answer <strong>in a draft markdown file first</strong> (one section per product). Don't write directly into Shopify.</li>
+      <li>Run <code>python3 ~/boco/toolbox/agentic-brand-voice-validator.py --brand varalife --text-file {your_answers.md}</code> — must exit 0 before deploy.</li>
+      <li>Reply on cockpit thread <code>ab60853b-f6a7-470f-a486-b26544a04d07</code> (Vara SEO thread) when answers-draft is ready for BOCO review.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ HANDOFF ============ -->
+<section id="handoff">
+  <div class="section-eyebrow">Section 11 · Hand-off</div>
+  <h2>Hand-off back to BOCO on completion</h2>
+  <p class="section-lede">When Rohan finishes answer-writing + deploys to Shopify:</p>
+
+  <div class="validation">
+    <ol>
+      <li>Rohan posts on cockpit thread <code>ab60853b</code> with the URLs of the 4 surfaces.</li>
+      <li>BOCO runs Google Rich Results Test on each URL.</li>
+      <li>BOCO submits to GSC and logs the deployment in <code>brand_decisions_log</code>.</li>
+      <li>BOCO closes parent task <strong>#1057</strong> with the validation evidence (4 URLs PASSING Rich Results).</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ OPEN ============ -->
+<section id="open">
+  <div class="section-eyebrow">Section 12 · Open questions</div>
+  <h2>Open questions for operator / Vara team</h2>
+  <p class="section-lede">Four items that must be resolved before the brief is fully deployable.</p>
+
+  <ul class="open-q">
+    <li><strong>FSSAI license numbers for Q31</strong> — need verbatim from Vara team. Verbatim = no paraphrasing of regulatory identifiers.</li>
+    <li><strong>Founder bios + credentials for Q34</strong> — need verbatim, do not paraphrase. EEAT signal — Google rewards specific credential strings.</li>
+    <li><strong>Manufacturer naming for Q35</strong> — disclosure scope decision. Some contract manufacturers prefer not to be named publicly; need go/no-go.</li>
+    <li><strong><code>/pages/faqs</code> IA</strong> — keep current 4-category layout (Orders / Shipping / Returns / Product Care) and add a new top-level "Science &amp; Ingredients" category? Or interleave by product? <strong>Recommend: add as new top-level category</strong> to preserve the existing ops surface and let Google crawl a clean cluster.</li>
+  </ul>
+</section>
+
+<!-- ============ REFERENCES ============ -->
+<section id="refs">
+  <div class="section-eyebrow">Section 13 · References</div>
+  <h2>Reference links</h2>
+
+  <ul style="font-size: 15.5px; line-height: 1.85; color: var(--ink-2); padding-left: 20px;">
+    <li><strong>SEO plan §Task 12:</strong> cockpit doc <a href="https://cockpit.boco.agency/docs/vara-life-seo-geo-optimization-plan-apr-2026">vara-life-seo-geo-optimization-plan-apr-2026</a>, blocks 340–437.</li>
+    <li><strong>Brand voice constraints:</strong> <code>brand_strategy.brand_voice_constraints</code> for <code>varalife</code> (no_disease_treatment_framing, no_unsubstantiated_health_claims, scientific_credibility_required, no_personal_testimonial_misrepresentation, etc.).</li>
+    <li><strong>Vara SEO cockpit thread:</strong> <code>ab60853b-f6a7-470f-a486-b26544a04d07</code>.</li>
+    <li><strong>Brand voice validator:</strong> <code>python3 ~/boco/toolbox/agentic-brand-voice-validator.py --brand varalife --text-file {file}</code></li>
+    <li><strong>Google Rich Results Test:</strong> <a href="https://search.google.com/test/rich-results">search.google.com/test/rich-results</a></li>
+    <li><strong>PubMed (citation verification):</strong> <a href="https://pubmed.ncbi.nlm.nih.gov">pubmed.ncbi.nlm.nih.gov</a></li>
+    <li><strong>FSSAI Nutraceutical Regulations 2022:</strong> <a href="https://www.fssai.gov.in/">fssai.gov.in</a></li>
+  </ul>
+</section>
+
+<!-- FEEDBACK BAR (bottom — after-reading call-to-action) -->
+<aside class="feedback-bar bottom" id="feedback-bottom">
+  <div class="feedback-eyebrow">Ready to respond?</div>
+  <h3>You've reached the end — what's the verdict?</h3>
+  <p>If everything looks right, hit Approve. If a specific question or section needs a change, Request changes lets you note exactly which one. Comments are for anything else.</p>
+  <div class="feedback-actions">
+    <a class="fb-btn fb-approve" href="mailto:abhishek@boco.vc?subject=Approved%3A%20Vara%20FAQ%20Page%20%E2%80%94%20Science%20Tab&amp;body=Hi%20Aarav%2C%0A%0AApproved%20for%20build%20%26%20deploy.%0A%0ANotes%20%28optional%29%3A%0A%E2%80%94%20%5BAdd%20any%20context%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">
+      <span class="fb-ico">✓</span> Approve as-is
+    </a>
+    <a class="fb-btn fb-changes" href="mailto:abhishek@boco.vc?subject=Changes%20requested%3A%20Vara%20FAQ%20Page%20%E2%80%94%20Science%20Tab&amp;body=Hi%20Aarav%2C%0A%0ASuggested%20changes%3A%0A%0A%E2%80%A2%20%5BSection%20or%20Q%20number%5D%20%E2%80%94%20%5BSuggested%20change%5D%0A%E2%80%A2%20%5B...%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">
+      <span class="fb-ico">⚠</span> Request changes
+    </a>
+    <a class="fb-btn fb-comment" href="mailto:abhishek@boco.vc?subject=Comment%3A%20Vara%20FAQ%20Page%20%E2%80%94%20Science%20Tab&amp;body=Hi%20Aarav%2C%0A%0A%5BYour%20thoughts%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">
+      <span class="fb-ico">💬</span> Add a comment
+    </a>
+  </div>
+</aside>
+
+<div class="doc-meta">
+  <span>Vara Life · SEO Phase 2b · T12 Brief</span>
+  <span>·</span>
+  <span>Authored by Aarav (BOCO) · 2026-06-03</span>
+  <span>·</span>
+  <span>Canonical cockpit doc: <a href="https://cockpit.boco.agency/docs/t12-science-faq-35q-brief-for-rohan">/docs/t12-science-faq-35q-brief-for-rohan</a></span>
+  <span>·</span>
+  <span>Static prototype — no DB primitives yet</span>
+</div>
+
+</main>
+</body>
+</html>

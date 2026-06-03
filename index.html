@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boco — Client Previews</title>
+<style>
+  :root {
+    --ink: #060237;
+    --ink-2: #1f2659;
+    --ink-3: #4a5184;
+    --bg: #f4f6fb;
+    --surface: #ffffff;
+    --border: #dbe0ec;
+    --accent: #2563eb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    margin: 0;
+    padding: 48px 24px 96px;
+    line-height: 1.6;
+  }
+  main { max-width: 720px; margin: 0 auto; }
+  h1 {
+    font-size: 28px;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+  .lede {
+    font-size: 15px;
+    color: var(--ink-3);
+    margin: 0 0 40px;
+    max-width: 560px;
+  }
+  .preview {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 2px rgba(6,2,55,0.04);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .preview:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(6,2,55,0.08);
+  }
+  .preview-brand {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .preview-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .preview-meta {
+    font-size: 13px;
+    color: var(--ink-3);
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--ink-3);
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>Boco — Client previews</h1>
+  <p class="lede">Public review surfaces for in-flight client work. Each preview links to a self-contained HTML document with a feedback channel.</p>
+
+  <a class="preview" href="./vara/faq-science-tab.html">
+    <div class="preview-brand">Vara Life</div>
+    <div class="preview-title">FAQ Page · Science Tab — Questions &amp; Answers</div>
+    <div class="preview-meta">35 science-grounded FAQs for vara.life — for review by the Vara team</div>
+  </a>
+
+  <footer>
+    Maintained by Boco Agency · <a href="https://boco.agency" style="color: var(--accent); text-decoration: none;">boco.agency</a>
+  </footer>
+</main>
+</body>
+</html>
