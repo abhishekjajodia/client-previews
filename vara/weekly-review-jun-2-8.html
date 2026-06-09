@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!-- BOCO × Vara Life — Weekly Review (plain-language, 2-column layout v3). Week Jun 2 → Jun 8 2026. Call Tue Jun 10 ~12pm.
+     Layout: 2-column grids everywhere (no wide single-column rows / full-width tables) per operator readability rule. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vara Life × BOCO — Weekly Review — Jun 2–8, 2026</title>
+<style>
+  :root{
+    --ink:#060237;--ink-2:#1f2659;--ink-3:#4a5184;--ink-muted:#6b73a3;
+    --bg:#f4f6fb;--surface:#ffffff;--surface-cool:#eef1f8;--border:#dbe0ec;--border-soft:#e8ebf3;
+    --accent:#0d9488;--accent-deep:#0f766e;--accent-soft:#d3f3ee;
+    --ok:#15803d;--ok-soft:#dcfce7;--warn:#b45309;--warn-soft:#fef3c7;--critical:#b91c1c;--critical-soft:#fee2e2;--insight:#6366f1;--insight-soft:#eef0ff;
+    --shadow-sm:0 1px 2px rgba(6,2,55,.04),0 1px 3px rgba(6,2,55,.06);--shadow-md:0 4px 6px rgba(6,2,55,.04),0 10px 20px rgba(6,2,55,.06);
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,Arial,sans-serif;--mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;} html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);font-size:15.5px;line-height:1.6;color:var(--ink);background:var(--bg);margin:0;}
+  main{max-width:960px;margin:0 auto;padding:0 24px 90px;}
+  strong{color:var(--ink);font-weight:600;} a{color:var(--accent);}
+  .hero{margin:0 -24px 40px;padding:54px 32px 46px;background:linear-gradient(135deg,var(--ink) 0%,var(--ink-2) 55%,#15564f 100%);color:#fff;position:relative;overflow:hidden;}
+  .hero::before{content:"";position:absolute;top:-40%;right:-10%;width:60%;height:200%;background:radial-gradient(circle,rgba(13,148,136,.28) 0%,transparent 60%);}
+  .hero-inner{position:relative;max-width:880px;margin:0 auto;}
+  .hero-eyebrow{font-family:var(--serif);font-style:italic;font-size:15px;color:rgba(255,255,255,.78);margin-bottom:10px;}
+  .hero h1{font-size:34px;line-height:1.15;margin:0 0 12px;font-weight:700;}
+  .hero-lede{font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.88);margin:0 0 22px;max-width:700px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:8px;}
+  .hero-chip{display:inline-flex;align-items:center;padding:4px 11px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);color:#fff;font-weight:500;font-size:12px;}
+  .hero-chip.status{background:var(--accent);border-color:transparent;}
+  section{margin:0 0 42px;}
+  section>h2{font-size:22px;line-height:1.2;margin:0 0 4px;font-weight:700;}
+  .section-num{display:inline-block;min-width:30px;padding:0 7px;margin-right:10px;font-family:var(--mono);font-size:13px;font-weight:700;color:var(--accent-deep);background:var(--accent-soft);border-radius:4px;vertical-align:3px;}
+  .lede{font-size:14.5px;color:var(--ink-3);margin:0 0 16px;max-width:720px;}
+  /* TOC — 2 col */
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:38px;box-shadow:var(--shadow-sm);}
+  .toc-title{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--ink-3);margin-bottom:8px;}
+  .toc ol{list-style:none;padding:0;margin:0;columns:2;column-gap:28px;}
+  .toc li{padding:3px 0;font-size:13.5px;break-inside:avoid;} .toc li a{color:var(--ink);text-decoration:none;} .toc li a:hover{color:var(--accent);}
+  /* THE core 2-column grid */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:14px 0;}
+  .grid2.tight{gap:10px;}
+  /* at-a-glance */
+  .glance{background:linear-gradient(135deg,var(--accent-soft) 0%,var(--surface) 100%);border:1px solid var(--border);border-radius:14px;padding:22px 26px;box-shadow:var(--shadow-md);border-left:4px solid var(--accent);}
+  .glance h3{font-size:19px;margin:0 0 12px;}
+  .glance ul{list-style:none;padding:0;margin:0;columns:2;column-gap:30px;}
+  .glance li{position:relative;padding:6px 0 6px 22px;font-size:14px;color:var(--ink-2);break-inside:avoid;margin-bottom:2px;}
+  .glance li::before{content:"";position:absolute;left:3px;top:13px;width:6px;height:6px;border-radius:50%;background:var(--accent);}
+  /* stat tiles */
+  .strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:11px;margin:18px 0;}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px;box-shadow:var(--shadow-sm);border-top:3px solid var(--accent);}
+  .stat.good{border-top-color:var(--ok);} .stat.warn{border-top-color:var(--warn);} .stat.bad{border-top-color:var(--critical);}
+  .stat .l{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;color:var(--ink-3);margin-bottom:3px;}
+  .stat .v{font-size:23px;font-weight:700;font-feature-settings:"tnum";}
+  .stat .d{font-size:12px;margin-top:2px;font-weight:600;} .stat .d.good{color:var(--ok);} .stat .d.warn{color:var(--warn);} .stat .d.bad{color:var(--critical);}
+  /* generic card (used in grid2) */
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;box-shadow:var(--shadow-sm);border-left:3px solid var(--border);}
+  .card.good{border-left-color:var(--ok);} .card.warn{border-left-color:var(--warn);} .card.bad{border-left-color:var(--critical);} .card.win{border-left-color:var(--ok);} .card.accent{border-left-color:var(--accent);}
+  .card h4{margin:0 0 6px;font-size:14px;font-weight:700;line-height:1.3;}
+  .card p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.5;}
+  .card .k{font-size:10px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;color:var(--ink-3);display:block;margin-bottom:4px;}
+  /* ad / kill mini card with inline stats */
+  .adcard{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;box-shadow:var(--shadow-sm);border-left:3px solid var(--accent);}
+  .adcard.win{border-left-color:var(--ok);} .adcard.drag{border-left-color:var(--critical);} .adcard.hold{border-left-color:var(--warn);}
+  .adcard .an{font-weight:600;font-size:13.5px;line-height:1.35;margin-bottom:8px;}
+  .adcard .as{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--ink-3);font-feature-settings:"tnum";}
+  .adcard .as b{color:var(--ink);font-weight:700;}
+  .adcard .why{font-size:12.5px;color:var(--ink-2);margin-top:7px;padding-top:7px;border-top:1px solid var(--border-soft);line-height:1.4;}
+  .ret{font-weight:700;} .ret.hi{color:var(--ok);} .ret.mid{color:var(--warn);} .ret.lo{color:var(--critical);}
+  /* note (callout) — used 2-up in grid2 */
+  .note{padding:13px 15px;border-radius:8px;font-size:13.5px;line-height:1.5;border-left:3px solid;}
+  .note .k{font-size:10px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:5px;}
+  .note.good{background:var(--ok-soft);border-left-color:var(--ok);color:#0e3e21;} .note.good .k{color:var(--ok);}
+  .note.warn{background:var(--warn-soft);border-left-color:var(--warn);color:#5a3408;} .note.warn .k{color:var(--warn);}
+  .note.bad{background:var(--critical-soft);border-left-color:var(--critical);color:#6a0e0e;} .note.bad .k{color:var(--critical);}
+  .note.insight{background:var(--insight-soft);border-left-color:var(--insight);color:var(--ink-2);} .note.insight .k{color:var(--insight);}
+  .note strong{color:var(--ink);}
+  /* tag */
+  .tag{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10px;font-weight:700;font-family:var(--mono);white-space:nowrap;}
+  .tag.ok{background:var(--ok-soft);color:var(--ok);} .tag.warn{background:var(--warn-soft);color:var(--warn);} .tag.bad{background:var(--critical-soft);color:var(--critical);} .tag.info{background:var(--accent-soft);color:var(--accent-deep);}
+  /* feature card */
+  .feat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;box-shadow:var(--shadow-sm);}
+  .feat .ft{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:5px;}
+  .feat .fn{font-weight:700;font-size:13.5px;} .feat p{margin:0;font-size:12.5px;color:var(--ink-2);line-height:1.45;}
+  .feat .fw{color:var(--ink-3);}
+  /* todo card */
+  .todo{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:11px 14px;box-shadow:var(--shadow-sm);font-size:13.5px;}
+  .todo.urgent{border-left-color:var(--critical);} .todo.client{border-left-color:var(--insight);}
+  .todo .own{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);font-weight:700;display:block;margin-bottom:4px;}
+  .span2{grid-column:1 / -1;}
+  .docmeta{margin-top:52px;padding:22px 0 0;border-top:1px solid var(--border);font-size:12.5px;color:var(--ink-muted);display:flex;flex-wrap:wrap;gap:6px 16px;}
+  @media(max-width:760px){.hero h1{font-size:28px;}.toc ol,.glance ul{columns:1;}.grid2{grid-template-columns:1fr;}}
+  @media print{body{background:#fff;}.hero{margin:0 0 26px;}section{break-inside:avoid;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Vara Life × BOCO · Weekly Review</div>
+    <h1>The week of June 2–8, in plain numbers</h1>
+    <p class="hero-lede">Store sales held steady (₹19.1L, up 3% on the week). The ad accounts spent a bit more on Meta for slightly less return — so this week we cut what wasn't working, launched a fresh batch of ads, and turned on a daily system to retire tired ads automatically.</p>
+    <div class="hero-meta">
+      <span class="hero-chip status">Call: Tue Jun 10, ~12pm</span>
+      <span class="hero-chip">Store sales ₹19.1L · +3%</span>
+      <span class="hero-chip">Meta ₹1.57 per ₹1</span>
+      <span class="hero-chip">Google ₹11.5 per ₹1</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<nav class="toc">
+  <div class="toc-title">What's in this review</div>
+  <ol>
+    <li><a href="#glance">1. The week at a glance</a></li>
+    <li><a href="#did">2. What we did &amp; what it gave us</a></li>
+    <li><a href="#topads">3. Ads that performed well</a></li>
+    <li><a href="#newads">4. How the new ads are doing</a></li>
+    <li><a href="#insights">5. What we learned</a></li>
+    <li><a href="#kill">6. Kill list — what we're retiring</a></li>
+    <li><a href="#pipeline">7. Pipeline — new ads we need</a></li>
+    <li><a href="#meta">8. New Meta features to test</a></li>
+    <li><a href="#next">9. What we're doing next week</a></li>
+    <li><a href="#need">10. What we need from Vara</a></li>
+  </ol>
+</nav>
+
+<!-- 1 -->
+<section id="glance">
+  <h2><span class="section-num">01</span>The week at a glance</h2>
+  <div class="glance">
+    <h3>Steady sales, tighter ad spending, a cleaner system going in.</h3>
+    <ul>
+      <li><strong>Sales held up:</strong> ₹19.1L for the week, <strong>up 3%</strong>. The low Sun/Mon days are the normal weekly dip.</li>
+      <li><strong>Meta got slightly less efficient</strong> — ₹1.57 back per ₹1 (down from ₹1.77), due to one prospecting campaign we've now shut off.</li>
+      <li><strong>Google is our most efficient channel</strong> — ₹11.5 per ₹1, on lower spend.</li>
+      <li><strong>~10 new ads launched</strong> + a rebuilt campaign structure for easy swap of tired ads.</li>
+      <li><strong>Tired ads now caught daily</strong> — a new "kill list" flags 7 to retire right now.</li>
+      <li><strong>For the call:</strong> the new Meta features (audited, §8) + the creatives we still need from you.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="did">
+  <h2><span class="section-num">02</span>What we did &amp; what it gave us</h2>
+  <p class="lede">Each move this week, and the result we can already see.</p>
+  <div class="grid2">
+    <div class="card accent"><span class="k">Action → result</span><h4>Shut off cold-audience prospecting</h4><p>It wasn't converting — that campaign spent ₹2.3L last week at only ₹1.21 return. Removing it cuts the biggest leak.</p></div>
+    <div class="card win"><span class="k">Action → result</span><h4>Launched ~10 new ads + dated packs</h4><p>Fresh creative in market; old ads now pause cleanly once new ones prove out. One new retention ad is already at ₹2.61.</p></div>
+    <div class="card accent"><span class="k">Action → result</span><h4>Turned on a daily tired-ad kill list</h4><p>Every morning we see exactly which ads have run their course (7 today) — no more guessing or weekly-only checks.</p></div>
+    <div class="card win"><span class="k">Action → result</span><h4>Held Google PMax at target</h4><p>₹3.29 return on ₹30K spend — efficient, with clear room to scale.</p></div>
+    <div class="card win"><span class="k">Action → result</span><h4>Retention campaign recovered</h4><p>From ₹1.50 → ₹2.42 return over two weeks, on discipline alone. New creatives land this week.</p></div>
+    <div class="card accent"><span class="k">Action → result</span><h4>Website / SEO shipped</h4><p>Science FAQ setup, social-share tags, heading fixes — supports long-term organic + AI-search visibility.</p></div>
+  </div>
+  <div class="strip">
+    <div class="stat good"><div class="l">Store sales (wk)</div><div class="v">₹19.1L</div><div class="d good">▲ +3%</div></div>
+    <div class="stat warn"><div class="l">Orders</div><div class="v">364</div><div class="d warn">▼ −5%</div></div>
+    <div class="stat bad"><div class="l">Meta return</div><div class="v">₹1.57</div><div class="d bad">▼ from ₹1.77</div></div>
+    <div class="stat good"><div class="l">Google return</div><div class="v">₹11.5</div><div class="d good">▲ from ₹9.98</div></div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="topads">
+  <h2><span class="section-num">03</span>Ads that performed well</h2>
+  <p class="lede">Top ads by sales this week. "Return" = ₹ of sales per ₹ spent.</p>
+  <div class="grid2 tight">
+    <div class="adcard"><div class="an">VaraPace — "Most Expensive Protein, Explained" <span style="color:var(--ink-3);font-weight:400">(video)</span></div><div class="as"><span>Spent <b>₹1.99L</b></span><span>Sales <b>₹2.82L</b></span><span>Return <b class="ret mid">₹1.42</b></span><span>Clicks 1.15%</span></div><div class="why">Our volume driver — biggest spend &amp; sales, but not the most efficient.</div></div>
+    <div class="adcard win"><div class="an">VaraSpan — "What's Actually Inside This Capsule" <span style="color:var(--ink-3);font-weight:400">(video)</span></div><div class="as"><span>Spent <b>₹73.6K</b></span><span>Sales <b>₹1.60L</b></span><span>Return <b class="ret hi">₹2.17</b></span><span>Clicks 2.19%</span></div><div class="why">Strong all-rounder — good return + high click rate.</div></div>
+    <div class="adcard win"><div class="an">VaraPace — "Gave It A Shot. Never Looked Back" <span style="color:var(--ink-3);font-weight:400">(image)</span></div><div class="as"><span>Spent <b>₹23.9K</b></span><span>Sales <b>₹67.8K</b></span><span>Return <b class="ret hi">₹2.83</b></span><span>Clicks 1.06%</span></div><div class="why">The efficiency winner — best return of the set. Give it more budget.</div></div>
+    <div class="adcard win"><div class="an">VaraPace — "A Stocked Fridge…" <span style="color:var(--ink-3);font-weight:400">(image)</span></div><div class="as"><span>Spent <b>₹41.5K</b></span><span>Sales <b>₹96.4K</b></span><span>Return <b class="ret hi">₹2.32</b></span><span>Clicks 1.11%</span></div><div class="why">Steady workhorse — but starting to tire (on the kill list).</div></div>
+    <div class="adcard"><div class="an">VaraPace — "India's Only BLG Shot" <span style="color:var(--ink-3);font-weight:400">(image)</span></div><div class="as"><span>Spent <b>₹15.7K</b></span><span>Sales <b>₹37.6K</b></span><span>Return <b class="ret hi">₹2.39</b></span><span>Clicks 1.25%</span></div><div class="why">Solid, but has run 60+ days — refresh due.</div></div>
+    <div class="adcard"><div class="an">VaraSpan — "Why is India Exhausted?" <span style="color:var(--ink-3);font-weight:400">(carousel)</span></div><div class="as"><span>Spent <b>₹11.3K</b></span><span>Sales <b>₹24.9K</b></span><span>Return <b class="ret hi">₹2.21</b></span><span>Clicks 1.52%</span></div><div class="why">Reliable VaraSpan performer.</div></div>
+  </div>
+  <div class="note insight"><span class="k">Worth noting</span>Our <strong>biggest-spend ad isn't our most efficient</strong> — "Most Expensive Protein" returns ₹1.42, while "Gave It A Shot" returns ₹2.83 on far less. Clear move: shift budget toward the efficient winners.</div>
+</section>
+
+<!-- 4 -->
+<section id="newads">
+  <h2><span class="section-num">04</span>How the new ads are doing</h2>
+  <p class="lede">We launched ~10 new ads this week. The honest read on their contribution.</p>
+  <div class="strip">
+    <div class="stat"><div class="l">Of account spend</div><div class="v">4.3%</div><div class="d">₹25.9K of ₹6.06L</div></div>
+    <div class="stat"><div class="l">Of account sales</div><div class="v">3.3%</div><div class="d">₹31.8K of ₹9.48L</div></div>
+    <div class="stat warn"><div class="l">New-ad return</div><div class="v">₹1.22</div><div class="d warn">vs ₹1.57 avg</div></div>
+    <div class="stat warn"><div class="l">Duds so far</div><div class="v">3</div><div class="d warn">₹0 after 3–5 days</div></div>
+  </div>
+  <div class="grid2">
+    <div class="card win"><h4>Best new ads</h4><p>• "What's Actually Inside This Capsule" — <strong>₹2.61</strong> on real ₹5.5K spend<br>• "It's Not Age. It's Your Cells." — ₹4.07 (early, small)<br>• "Protein That Fits In Your Pocket" — ₹2.26</p></div>
+    <div class="card warn"><h4>New ads to watch / cut</h4><p>• "Tired Of Being Tired" — ₹0 sales<br>• Energy / Focus / Recovery video — ₹0 sales<br>• Partnership ad — ₹0 sales (no signal yet)</p></div>
+  </div>
+  <div class="note warn"><span class="k">Plain read</span>New ads are <strong>still in their learning phase</strong> (under a week old), so below average for now — normal. At 4% of spend they're <strong>not the cause of the dip</strong>. Standouts already showing; the <strong>3 zero-sales ads</strong> roll into the kill list if they don't move by tomorrow.</div>
+</section>
+
+<!-- 5 -->
+<section id="insights">
+  <h2><span class="section-num">05</span>What we learned</h2>
+  <p class="lede">Takeaways from this week's numbers that shape what we do next.</p>
+  <div class="grid2">
+    <div class="note insight"><span class="k">Budget</span>Spend is concentrated on a high-volume / low-efficiency ad. <strong>Shifting budget to the ₹2.3–2.8 winners</strong> lifts efficiency without spending more.</div>
+    <div class="note insight"><span class="k">Creative</span>Some ads get <strong>lots of clicks but few sales</strong> (3.45% click rate, ₹1.12 return). Hook works, close doesn't — keep the hooks, strengthen offer/proof.</div>
+    <div class="note insight"><span class="k">Structure</span>Cold prospecting was the leak (₹1.21). Retiring it + the warm-audience packs should <strong>lift Meta efficiency next week</strong> — the fix for the dip Prithvi flagged.</div>
+    <div class="note insight"><span class="k">Google</span>PMax is efficient (₹3.29) but <strong>under-fed</strong> — only ₹30K/wk and one active asset set. Refresh images + lift the cap.</div>
+    <div class="note insight span2"><span class="k">Retention</span>The cross-sell base is the biggest lifetime-value lever: moving a buyer to <strong>both products nearly triples their value</strong> (₹7.8K → ₹20.9K). 5,189 customers are in that pipeline — the subscription + cross-sell broadcast are how we convert them.</div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section id="kill">
+  <h2><span class="section-num">06</span>Kill list — what we're retiring now</h2>
+  <p class="lede">7 ads have run their course (high frequency + falling clicks + rising cost). Retiring them frees budget for fresh creative. Recommendations — actioned with your nod.</p>
+  <div class="grid2 tight">
+    <div class="adcard drag"><div class="an">VaraPace — "A Stocked Fridge…"</div><div class="as"><span>Spent <b>₹41.5K</b></span><span>Return <b class="ret hi">₹2.32</b></span></div><div class="why">Worn out — falling clicks, rising cost. Big budget freed.</div></div>
+    <div class="adcard drag"><div class="an">VaraPace — "Most Expensive Protein"</div><div class="as"><span>Spent <b>₹46.2K</b></span><span>Return <b class="ret mid">₹1.77</b></span></div><div class="why">High spend, fatiguing, below 2x. Biggest budget freed.</div></div>
+    <div class="adcard"><div class="an">VaraPace — "India's Only BLG Shot"</div><div class="as"><span>Spent <b>₹15.7K</b></span><span>Return <b class="ret hi">₹2.39</b></span></div><div class="why">Aged out — running 60+ days.</div></div>
+    <div class="adcard"><div class="an">VaraSpan — "Aging Got Less Scarier"</div><div class="as"><span>Spent <b>₹9.2K</b></span><span>Return <b class="ret lo">₹1.48</b></span></div><div class="why">Aged out + below 2x.</div></div>
+    <div class="adcard"><div class="an">VaraPace — "Read Your Label…"</div><div class="as"><span>Spent <b>₹5.1K</b></span><span>Return <b class="ret hi">₹3.01</b></span></div><div class="why">Clicks declining — refresh the angle.</div></div>
+    <div class="adcard"><div class="an">VaraSpan — "3.5 Months. One Capsule"</div><div class="as"><span>Spent <b>₹2.7K</b></span><span>Return <b class="ret hi">₹3.25</b></span></div><div class="why">Fatiguing on cost.</div></div>
+    <div class="adcard hold span2"><div class="an">VaraPace — "The Restock…" &nbsp;<span class="tag warn">HOLD</span></div><div class="as"><span>Spent <b>₹2.4K</b></span><span>Return <b class="ret hi">₹6.36</b></span></div><div class="why">Flagged tired on signal, but still earning ₹6.36 per ₹1 — we let it run until the numbers actually turn.</div></div>
+  </div>
+  <div class="note good"><span class="k">Our call</span>Retire the top 6. <strong>Keep "The Restock"</strong> — tired on signal but still converting at 6.4x. The two big-spend retires free up the most budget.</div>
+</section>
+
+<!-- 7 -->
+<section id="pipeline">
+  <h2><span class="section-num">07</span>Pipeline — how many new ads we need</h2>
+  <p class="lede">Simple math so we never run short of fresh creative.</p>
+  <div class="strip">
+    <div class="stat"><div class="l">Live ads now</div><div class="v">215</div><div class="d">all campaigns</div></div>
+    <div class="stat warn"><div class="l">Retiring now</div><div class="v">6–7</div><div class="d warn">kill list</div></div>
+    <div class="stat warn"><div class="l">New duds</div><div class="v">3</div><div class="d warn">to replace</div></div>
+    <div class="stat good"><div class="l">To brief now</div><div class="v">~10</div><div class="d good">this cycle</div></div>
+  </div>
+  <div class="grid2">
+    <div class="note insight"><span class="k">This cycle</span><strong>6–7 tired + 3 duds = ~10 fresh creatives</strong>, split across VaraPace &amp; VaraSpan (warm-audience focused). You've already promised 4 VaraSpan + 2 VaraPace.</div>
+    <div class="note insight"><span class="k">Going forward</span>Briefing <strong>~8–10 new ads every 2 weeks</strong> keeps the packs fed at current spend — and scales up as we push toward ₹95K–1L/day.</div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section id="meta">
+  <h2><span class="section-num">08</span>New Meta features to test</h2>
+  <p class="lede">The new options Prithvi flagged, plus a wider audit — in priority order.</p>
+  <div class="grid2">
+    <div class="note good"><span class="k">Customer list — YES, but how matters</span>Feed the full list in <strong>three roles</strong>: a <em>signal</em> to find similar buyers, an <em>exclusion</em> so we don't re-sell existing customers, and a <em>target</em> for cross-sell. Honest note: Klaviyo likely already syncs most of this — the gain is <strong>control + freshness</strong>, not a brand-new capability. We'll cap it so Meta doesn't over-spend on warm buyers.</div>
+    <div class="note warn"><span class="k">2-year data retention — fine, low impact</span>Only affects how long old reports stay viewable; <strong>doesn't change results</strong>. Meta also tightened history to ~13 months in Jan 2026. The durable fix (which we already run) is keeping our own copy of the data — so we're not dependent on Meta's shrinking history.</div>
+  </div>
+  <div class="grid2 tight">
+    <div class="feat"><div class="ft"><span class="fn">Advantage+ Creative</span><span class="tag ok">TEST NOW</span></div><p><span class="fw">Auto-makes variations of one ad.</span> Best built-in tool against <strong>ad fatigue</strong> — more variants per asset.</p></div>
+    <div class="feat"><div class="ft"><span class="fn">Advantage+ Sales + Audience</span><span class="tag ok">TEST NOW</span></div><p><span class="fw">AI-run sales campaign using our list as signal.</span> The main engine to scale toward ₹1L/day cleanly.</p></div>
+    <div class="feat"><div class="ft"><span class="fn">Conversions API health</span><span class="tag ok">VERIFY NOW</span></div><p><span class="fw">Server-side purchase tracking.</span> Recovers tracking lost to Meta's Jan-2026 cuts — needed before scaling.</p></div>
+    <div class="feat"><div class="ft"><span class="fn">Partnership / creator ads</span><span class="tag info">PILOT</span></div><p><span class="fw">Run creator posts as ads from their handle.</span> Trust + fatigue play for a supplement brand; cheaper clicks.</p></div>
+    <div class="feat"><div class="ft"><span class="fn">Incremental attribution</span><span class="tag info">PILOT</span></div><p><span class="fw">Optimises to sales the ads truly caused.</span> Protects real return as spend scales up.</p></div>
+    <div class="feat"><div class="ft"><span class="fn">Value optimisation</span><span class="tag info">PILOT</span></div><p><span class="fw">Bids toward higher-lifetime-value buyers.</span> Fits a repeat-purchase / subscription business.</p></div>
+    <div class="feat"><div class="ft"><span class="fn">Promo codes in ads</span><span class="tag warn">TEST + CHECK</span></div><p><span class="fw">Shows/auto-applies a code at checkout.</span> Cuts friction — <em>needs a Shopflo test first</em>.</p></div>
+    <div class="feat"><div class="ft"><span class="fn">Opportunity Score</span><span class="tag info">MONITOR</span></div><p><span class="fw">Meta's 0–100 account setup score.</span> Free weekly account QA checklist.</p></div>
+  </div>
+  <div class="note insight"><span class="k">Do first</span><strong>1.</strong> Advantage+ Creative (fight fatigue) · <strong>2.</strong> Feed the customer list properly + Advantage+ Sales (scale) · <strong>3.</strong> Confirm Conversions API is healthy. We'll build the test plan into next sprint and report back.</div>
+</section>
+
+<!-- 9 -->
+<section id="next">
+  <h2><span class="section-num">09</span>What we're doing next week</h2>
+  <div class="grid2 tight">
+    <div class="todo urgent"><span class="own">Soban / Abhishek · URGENT</span>Fix the rejected checkout ads (Meta flagged them) so they can run.</div>
+    <div class="todo"><span class="own">Simran</span>Retire the 6 tired ads + brief/launch ~10 fresh creatives across VaraPace &amp; VaraSpan.</div>
+    <div class="todo"><span class="own">Simran / Abhishek</span>Shift budget toward the efficient winners ("Gave It A Shot", "Stocked Fridge", "What's Inside").</div>
+    <div class="todo"><span class="own">Monjori</span>Land the 5 retention creatives (reorder, cross-sell, etc.) — due this week.</div>
+    <div class="todo"><span class="own">BOCO · Google</span>Refresh PMax images (1 active set) + plan a budget-cap lift to scale the ₹3.29 channel.</div>
+    <div class="todo"><span class="own">BOCO</span>Set up the customer-list feed + Advantage+ Creative test; verify Conversions API health.</div>
+    <div class="todo span2"><span class="own">BOCO + Vara</span>Move the subscription build forward: design sign-off → mobile build → Accenture API wiring.</div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section id="need">
+  <h2><span class="section-num">10</span>What we need from Vara</h2>
+  <div class="grid2 tight">
+    <div class="todo client"><span class="own">Creative</span>The <strong>4 VaraSpan + 2 VaraPace creatives</strong> promised, to launch the rest of the new ads. Plus a call on Yamanaka direction.</div>
+    <div class="todo client"><span class="own">Decision</span>Go-ahead to <strong>feed the full customer list</strong> (the way in §8), and to switch on 2-year data retention (low priority).</div>
+    <div class="todo client"><span class="own">Subscription</span>Design sign-off on the subscription page so we build mobile + wire the Accenture API.</div>
+    <div class="todo client"><span class="own">Content</span>FSSAI license numbers, founder bios, and the OK to name manufacturers — for the Science FAQ.</div>
+    <div class="todo client span2"><span class="own">Access</span>SagePilot (WhatsApp) access for Simran, and adding the Vara Page to the Meta app (lets us self-host 225 video ads).</div>
+  </div>
+</section>
+
+<div class="docmeta">
+  <span><strong>Vara Life × BOCO</strong> — Weekly Review</span>
+  <span>Week: Jun 2 → Jun 8, 2026</span>
+  <span>Numbers: Meta · Google · Shopify, week vs prior week</span>
+  <span>Call: Tue Jun 10, ~12pm</span>
+</div>
+
+</main>
+</body>
+</html>
